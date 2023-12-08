@@ -7,6 +7,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{43ECDC56-8
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarBook.Domain", "Core\CarBook.Domain\CarBook.Domain.csproj", "{AE7EEB01-9E80-40A1-9D0D-D7D90D10CE93}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{2CE4EF5F-5C02-48D7-916C-8CD11CAEE34D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarBook.Persistence", "Infrastructure\CarBook.Persistence\CarBook.Persistence.csproj", "{D63F9F7B-524E-4925-BA87-ED9E69F5F83B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{7E2C3625-3969-4FB8-8F77-D133620996BF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarBook.WebApi", "Presentation\CarBook.WebApi\CarBook.WebApi.csproj", "{74FFBCCD-B4FA-4D5C-A8F3-A39C34037D60}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,12 +25,22 @@ Global
 		{AE7EEB01-9E80-40A1-9D0D-D7D90D10CE93}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AE7EEB01-9E80-40A1-9D0D-D7D90D10CE93}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AE7EEB01-9E80-40A1-9D0D-D7D90D10CE93}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D63F9F7B-524E-4925-BA87-ED9E69F5F83B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D63F9F7B-524E-4925-BA87-ED9E69F5F83B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D63F9F7B-524E-4925-BA87-ED9E69F5F83B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D63F9F7B-524E-4925-BA87-ED9E69F5F83B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74FFBCCD-B4FA-4D5C-A8F3-A39C34037D60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74FFBCCD-B4FA-4D5C-A8F3-A39C34037D60}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74FFBCCD-B4FA-4D5C-A8F3-A39C34037D60}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74FFBCCD-B4FA-4D5C-A8F3-A39C34037D60}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{AE7EEB01-9E80-40A1-9D0D-D7D90D10CE93} = {43ECDC56-8580-4305-9BEF-024609A09867}
+		{D63F9F7B-524E-4925-BA87-ED9E69F5F83B} = {2CE4EF5F-5C02-48D7-916C-8CD11CAEE34D}
+		{74FFBCCD-B4FA-4D5C-A8F3-A39C34037D60} = {7E2C3625-3969-4FB8-8F77-D133620996BF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9CA58D9D-B87D-4D58-A779-CE45A183BA7B}

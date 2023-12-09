@@ -10,7 +10,6 @@ public class BaseUpdateCommand
 {
     public BaseUpdateCommand()
     {
-
         IsActive = true;
         IsDeleted = false;
         UpdatedDate = DateTime.Now;

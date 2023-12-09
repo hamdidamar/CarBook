@@ -34,7 +34,7 @@ namespace CarBook.WebApi.Controllers
         }
 
         [HttpGet("id")]
-        public async Task<IActionResult> GetById(Guid id)
+        public async Task<IActionResult> GetById(string id)
         {
             var value = await _getModelByIdQueryHandler.Handle(new GetModelByIdQuery(id));
             return Ok(value);
@@ -48,7 +48,7 @@ namespace CarBook.WebApi.Controllers
         }
 
         [HttpDelete("id")]
-        public async Task<IActionResult> Remove(Guid id)
+        public async Task<IActionResult> Remove(string id)
         {
             await _removeModelCommandHandler.Handle(new RemoveModelCommand(id));
             return Ok();

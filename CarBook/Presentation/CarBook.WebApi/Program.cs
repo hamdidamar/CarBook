@@ -3,7 +3,9 @@ using CarBook.Application.Features.CQRS.Handlers.BannerHandlers;
 using CarBook.Application.Features.CQRS.Handlers.BrandHandlers;
 using CarBook.Application.Features.CQRS.Handlers.CarHandlers;
 using CarBook.Application.Features.CQRS.Handlers.ColorHandlers;
+using CarBook.Application.Features.CQRS.Handlers.FuelHandlers;
 using CarBook.Application.Features.CQRS.Handlers.ModelHandlers;
+using CarBook.Application.Features.CQRS.Handlers.TransmissionHandlers;
 using CarBook.Application.Interfaces;
 using CarBook.Persistence.Context;
 using CarBook.Persistence.Repositories;
@@ -49,6 +51,18 @@ builder.Services.AddScoped<GetModelByIdQueryHandler>();
 builder.Services.AddScoped<CreateModelCommandHandler>();
 builder.Services.AddScoped<UpdateModelCommandHandler>();
 builder.Services.AddScoped<RemoveModelCommandHandler>();
+
+builder.Services.AddScoped<GetFuelQueryHandler>();
+builder.Services.AddScoped<GetFuelByIdQueryHandler>();
+builder.Services.AddScoped<CreateFuelCommandHandler>();
+builder.Services.AddScoped<UpdateFuelCommandHandler>();
+builder.Services.AddScoped<RemoveFuelCommandHandler>();
+
+builder.Services.AddScoped<GetTransmissionQueryHandler>();
+builder.Services.AddScoped<GetTransmissionByIdQueryHandler>();
+builder.Services.AddScoped<CreateTransmissionCommandHandler>();
+builder.Services.AddScoped<UpdateTransmissionCommandHandler>();
+builder.Services.AddScoped<RemoveTransmissionCommandHandler>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

@@ -8,7 +8,7 @@ namespace CarBook.Application.Features.CQRS.Results;
 
 public class BaseResult
 {
-    public Guid Id { get; set; }
+    public string Id { get; set; }
     public bool IsActive { get; set; }
     public bool IsDeleted { get; set; }
     public DateTime CreatedDate { get; set; }

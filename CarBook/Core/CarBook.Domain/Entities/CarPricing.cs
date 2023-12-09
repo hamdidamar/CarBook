@@ -8,8 +8,8 @@ namespace CarBook.Domain.Entities;
 
 public class CarPricing:BaseEntity
 {
-    public int CarId { get; set; }
-    public int PricingId { get; set; }
+    public string CarId { get; set; }
+    public string PricingId { get; set; }
     public virtual Car? Car { get; set; }
     public virtual Pricing? Pricing { get; set; }
 }

@@ -8,9 +8,9 @@ namespace CarBook.Application.Features.CQRS.Commands.BannerCommands;
 
 public class RemoveBannerCommand
 {
-    public Guid Id { get; set; }
+    public string Id { get; set; }
 
-    public RemoveBannerCommand(Guid id)
+    public RemoveBannerCommand(string id)
     {
         Id = id;
     }

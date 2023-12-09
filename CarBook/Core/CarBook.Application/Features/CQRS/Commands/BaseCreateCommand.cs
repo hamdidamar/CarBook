@@ -11,12 +11,12 @@ public class BaseCreateCommand
     public BaseCreateCommand()
     {
 
-        Id = Guid.NewGuid();
+        Id = Guid.NewGuid().ToString();
         IsActive = true;
         IsDeleted = false;
         CreatedDate = DateTime.Now;
     }
-    public Guid Id { get; set; }
+    public string Id { get; set; }
     public bool IsActive { get; set; }
     public bool IsDeleted { get; set; }
     public DateTime CreatedDate { get; set; }

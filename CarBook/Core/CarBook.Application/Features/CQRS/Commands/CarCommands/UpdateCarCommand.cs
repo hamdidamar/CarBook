@@ -8,8 +8,8 @@ namespace CarBook.Application.Features.CQRS.Commands.CarCommands;
 
 public class UpdateCarCommand:BaseUpdateCommand
 {
-    public Guid ColorId { get; set; }
-    public Guid ModelId { get; set; }
+    public string ColorId { get; set; }
+    public string ModelId { get; set; }
     public int Kilometer { get; set; }
     public short ModelYear { get; set; }
     public string Plate { get; set; }

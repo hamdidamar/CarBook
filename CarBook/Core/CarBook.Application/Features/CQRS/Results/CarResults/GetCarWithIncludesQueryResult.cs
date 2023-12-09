@@ -8,8 +8,8 @@ namespace CarBook.Application.Features.CQRS.Results.CarResults;
 
 public class GetCarWithIncludesQueryResult:BaseResult
 {
-    public Guid ColorId { get; set; }
-    public Guid ModelId { get; set; }
+    public string ColorId { get; set; }
+    public string ModelId { get; set; }
     public string ColorName { get; set; }
     public string ModelName { get; set; }
     public string BrandName { get; set; }

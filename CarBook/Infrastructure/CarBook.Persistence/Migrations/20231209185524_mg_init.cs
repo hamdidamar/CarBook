@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace CarBook.Persistence.Migrations
 {
     /// <inheritdoc />
-    public partial class init : Migration
+    public partial class mg_init : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -15,7 +15,7 @@ namespace CarBook.Persistence.Migrations
                 name: "Abouts",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ImgUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -33,7 +33,7 @@ namespace CarBook.Persistence.Migrations
                 name: "Banners",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     VideoDescription = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -52,7 +52,7 @@ namespace CarBook.Persistence.Migrations
                 name: "Brands",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     IsActive = table.Column<bool>(type: "bit", nullable: false),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false),
@@ -68,7 +68,7 @@ namespace CarBook.Persistence.Migrations
                 name: "Categories",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     IsActive = table.Column<bool>(type: "bit", nullable: false),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false),
@@ -84,7 +84,7 @@ namespace CarBook.Persistence.Migrations
                 name: "Colors",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     HexCode = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     RGB = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -102,7 +102,7 @@ namespace CarBook.Persistence.Migrations
                 name: "Contacts",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Mail = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Subject = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -121,7 +121,7 @@ namespace CarBook.Persistence.Migrations
                 name: "Features",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     IsActive = table.Column<bool>(type: "bit", nullable: false),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false),
@@ -137,7 +137,7 @@ namespace CarBook.Persistence.Migrations
                 name: "Footers",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Address = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Phone = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -156,7 +156,7 @@ namespace CarBook.Persistence.Migrations
                 name: "Fuels",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     IsActive = table.Column<bool>(type: "bit", nullable: false),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false),
@@ -172,7 +172,7 @@ namespace CarBook.Persistence.Migrations
                 name: "Locations",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     IsActive = table.Column<bool>(type: "bit", nullable: false),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false),
@@ -188,7 +188,7 @@ namespace CarBook.Persistence.Migrations
                 name: "Pricings",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     IsActive = table.Column<bool>(type: "bit", nullable: false),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false),
@@ -204,7 +204,7 @@ namespace CarBook.Persistence.Migrations
                 name: "Services",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     IconUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -222,7 +222,7 @@ namespace CarBook.Persistence.Migrations
                 name: "SocialMedias",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Url = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Icon = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -240,7 +240,7 @@ namespace CarBook.Persistence.Migrations
                 name: "Testimonials",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Comment = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -259,7 +259,7 @@ namespace CarBook.Persistence.Migrations
                 name: "Transmissions",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     IsActive = table.Column<bool>(type: "bit", nullable: false),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false),
@@ -275,16 +275,13 @@ namespace CarBook.Persistence.Migrations
                 name: "Models",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    BrandId = table.Column<int>(type: "int", nullable: false),
-                    FuelId = table.Column<int>(type: "int", nullable: false),
-                    TransmissionId = table.Column<int>(type: "int", nullable: false),
+                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    BrandId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    FuelId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    TransmissionId = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     DailyPrice = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    BrandId1 = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
-                    FuelId1 = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
-                    TransmissionId1 = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     IsActive = table.Column<bool>(type: "bit", nullable: false),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false),
                     CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
@@ -294,29 +291,32 @@ namespace CarBook.Persistence.Migrations
                 {
                     table.PrimaryKey("PK_Models", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Models_Brands_BrandId1",
-                        column: x => x.BrandId1,
+                        name: "FK_Models_Brands_BrandId",
+                        column: x => x.BrandId,
                         principalTable: "Brands",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Models_Fuels_FuelId1",
-                        column: x => x.FuelId1,
+                        name: "FK_Models_Fuels_FuelId",
+                        column: x => x.FuelId,
                         principalTable: "Fuels",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Models_Transmissions_TransmissionId1",
-                        column: x => x.TransmissionId1,
+                        name: "FK_Models_Transmissions_TransmissionId",
+                        column: x => x.TransmissionId,
                         principalTable: "Transmissions",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
                 name: "Cars",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    ColorId = table.Column<int>(type: "int", nullable: false),
-                    ModelId = table.Column<int>(type: "int", nullable: false),
+                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    ColorId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    ModelId = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Kilometer = table.Column<int>(type: "int", nullable: false),
                     ModelYear = table.Column<short>(type: "smallint", nullable: false),
                     Plate = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -324,10 +324,8 @@ namespace CarBook.Persistence.Migrations
                     Luggage = table.Column<short>(type: "smallint", nullable: false),
                     ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     DetailImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ColorId1 = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
-                    ModelId1 = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
-                    BrandId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
-                    TransmissionId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    BrandId = table.Column<string>(type: "nvarchar(450)", nullable: true),
+                    TransmissionId = table.Column<string>(type: "nvarchar(450)", nullable: true),
                     IsActive = table.Column<bool>(type: "bit", nullable: false),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false),
                     CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
@@ -342,15 +340,17 @@ namespace CarBook.Persistence.Migrations
                         principalTable: "Brands",
                         principalColumn: "Id");
                     table.ForeignKey(
-                        name: "FK_Cars_Colors_ColorId1",
-                        column: x => x.ColorId1,
+                        name: "FK_Cars_Colors_ColorId",
+                        column: x => x.ColorId,
                         principalTable: "Colors",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Cars_Models_ModelId1",
-                        column: x => x.ModelId1,
+                        name: "FK_Cars_Models_ModelId",
+                        column: x => x.ModelId,
                         principalTable: "Models",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Cars_Transmissions_TransmissionId",
                         column: x => x.TransmissionId,
@@ -362,10 +362,9 @@ namespace CarBook.Persistence.Migrations
                 name: "CarDescriptions",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Details = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    CarId = table.Column<int>(type: "int", nullable: false),
-                    CarId1 = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    CarId = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     IsActive = table.Column<bool>(type: "bit", nullable: false),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false),
                     CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
@@ -375,22 +374,21 @@ namespace CarBook.Persistence.Migrations
                 {
                     table.PrimaryKey("PK_CarDescriptions", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_CarDescriptions_Cars_CarId1",
-                        column: x => x.CarId1,
+                        name: "FK_CarDescriptions_Cars_CarId",
+                        column: x => x.CarId,
                         principalTable: "Cars",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
                 name: "CarFeatures",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Available = table.Column<bool>(type: "bit", nullable: false),
-                    CarId = table.Column<int>(type: "int", nullable: false),
-                    FeatureId = table.Column<int>(type: "int", nullable: false),
-                    CarId1 = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
-                    FeatureId1 = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    CarId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    FeatureId = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     IsActive = table.Column<bool>(type: "bit", nullable: false),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false),
                     CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
@@ -400,26 +398,26 @@ namespace CarBook.Persistence.Migrations
                 {
                     table.PrimaryKey("PK_CarFeatures", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_CarFeatures_Cars_CarId1",
-                        column: x => x.CarId1,
+                        name: "FK_CarFeatures_Cars_CarId",
+                        column: x => x.CarId,
                         principalTable: "Cars",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_CarFeatures_Features_FeatureId1",
-                        column: x => x.FeatureId1,
+                        name: "FK_CarFeatures_Features_FeatureId",
+                        column: x => x.FeatureId,
                         principalTable: "Features",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
                 name: "CarPricings",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    CarId = table.Column<int>(type: "int", nullable: false),
-                    PricingId = table.Column<int>(type: "int", nullable: false),
-                    CarId1 = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
-                    PricingId1 = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    CarId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    PricingId = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     IsActive = table.Column<bool>(type: "bit", nullable: false),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false),
                     CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
@@ -429,41 +427,43 @@ namespace CarBook.Persistence.Migrations
                 {
                     table.PrimaryKey("PK_CarPricings", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_CarPricings_Cars_CarId1",
-                        column: x => x.CarId1,
+                        name: "FK_CarPricings_Cars_CarId",
+                        column: x => x.CarId,
                         principalTable: "Cars",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_CarPricings_Pricings_PricingId1",
-                        column: x => x.PricingId1,
+                        name: "FK_CarPricings_Pricings_PricingId",
+                        column: x => x.PricingId,
                         principalTable: "Pricings",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_CarDescriptions_CarId1",
+                name: "IX_CarDescriptions_CarId",
                 table: "CarDescriptions",
-                column: "CarId1");
+                column: "CarId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_CarFeatures_CarId1",
+                name: "IX_CarFeatures_CarId",
                 table: "CarFeatures",
-                column: "CarId1");
+                column: "CarId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_CarFeatures_FeatureId1",
+                name: "IX_CarFeatures_FeatureId",
                 table: "CarFeatures",
-                column: "FeatureId1");
+                column: "FeatureId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_CarPricings_CarId1",
+                name: "IX_CarPricings_CarId",
                 table: "CarPricings",
-                column: "CarId1");
+                column: "CarId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_CarPricings_PricingId1",
+                name: "IX_CarPricings_PricingId",
                 table: "CarPricings",
-                column: "PricingId1");
+                column: "PricingId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Cars_BrandId",
@@ -471,14 +471,14 @@ namespace CarBook.Persistence.Migrations
                 column: "BrandId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Cars_ColorId1",
+                name: "IX_Cars_ColorId",
                 table: "Cars",
-                column: "ColorId1");
+                column: "ColorId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Cars_ModelId1",
+                name: "IX_Cars_ModelId",
                 table: "Cars",
-                column: "ModelId1");
+                column: "ModelId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Cars_TransmissionId",
@@ -486,19 +486,19 @@ namespace CarBook.Persistence.Migrations
                 column: "TransmissionId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Models_BrandId1",
+                name: "IX_Models_BrandId",
                 table: "Models",
-                column: "BrandId1");
+                column: "BrandId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Models_FuelId1",
+                name: "IX_Models_FuelId",
                 table: "Models",
-                column: "FuelId1");
+                column: "FuelId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Models_TransmissionId1",
+                name: "IX_Models_TransmissionId",
                 table: "Models",
-                column: "TransmissionId1");
+                column: "TransmissionId");
         }
 
         /// <inheritdoc />

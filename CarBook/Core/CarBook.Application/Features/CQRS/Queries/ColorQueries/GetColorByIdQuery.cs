@@ -8,9 +8,9 @@ namespace CarBook.Application.Features.CQRS.Queries.ColorQueries;
 
 public class GetColorByIdQuery
 {
-    public Guid Id { get; set; }
+    public string Id { get; set; }
 
-    public GetColorByIdQuery(Guid id)
+    public GetColorByIdQuery(string id)
     {
         Id = id;
     }

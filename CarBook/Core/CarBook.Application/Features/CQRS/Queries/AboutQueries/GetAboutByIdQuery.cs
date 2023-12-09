@@ -8,9 +8,9 @@ namespace CarBook.Application.Features.CQRS.Queries.AboutQueries
 {
     public class GetAboutByIdQuery
     {
-        public Guid Id { get; set; }
+        public string Id { get; set; }
 
-        public GetAboutByIdQuery(Guid id)
+        public GetAboutByIdQuery(string id)
         {
             Id = id;
         }

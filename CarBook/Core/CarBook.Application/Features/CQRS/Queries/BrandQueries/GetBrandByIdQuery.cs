@@ -8,9 +8,9 @@ namespace CarBook.Application.Features.CQRS.Queries.BrandQueries;
 
 public class GetBrandByIdQuery
 {
-    public Guid Id { get; set; }
+    public string Id { get; set; }
 
-    public GetBrandByIdQuery(Guid id)
+    public GetBrandByIdQuery(string id)
     {
         Id = id;
     }

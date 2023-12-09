@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CarBook.Persistence.Migrations
 {
     [DbContext(typeof(CarBookContext))]
-    [Migration("20231208211222_init")]
-    partial class init
+    [Migration("20231209185524_mg_init")]
+    partial class mg_init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -27,9 +27,8 @@ namespace CarBook.Persistence.Migrations
 
             modelBuilder.Entity("CarBook.Domain.Entities.About", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
@@ -62,9 +61,8 @@ namespace CarBook.Persistence.Migrations
 
             modelBuilder.Entity("CarBook.Domain.Entities.Banner", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
@@ -101,9 +99,8 @@ namespace CarBook.Persistence.Migrations
 
             modelBuilder.Entity("CarBook.Domain.Entities.Brand", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
@@ -128,18 +125,15 @@ namespace CarBook.Persistence.Migrations
 
             modelBuilder.Entity("CarBook.Domain.Entities.Car", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
 
-                    b.Property<Guid?>("BrandId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("BrandId")
+                        .HasColumnType("nvarchar(450)");
 
-                    b.Property<int>("ColorId")
-                        .HasColumnType("int");
-
-                    b.Property<Guid?>("ColorId1")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("ColorId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
@@ -164,11 +158,9 @@ namespace CarBook.Persistence.Migrations
                     b.Property<short>("Luggage")
                         .HasColumnType("smallint");
 
-                    b.Property<int>("ModelId")
-                        .HasColumnType("int");
-
-                    b.Property<Guid?>("ModelId1")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("ModelId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<short>("ModelYear")
                         .HasColumnType("smallint");
@@ -180,8 +172,8 @@ namespace CarBook.Persistence.Migrations
                     b.Property<short>("Seat")
                         .HasColumnType("smallint");
 
-                    b.Property<Guid?>("TransmissionId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("TransmissionId")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("datetime2");
@@ -190,9 +182,9 @@ namespace CarBook.Persistence.Migrations
 
                     b.HasIndex("BrandId");
 
-                    b.HasIndex("ColorId1");
+                    b.HasIndex("ColorId");
 
-                    b.HasIndex("ModelId1");
+                    b.HasIndex("ModelId");
 
                     b.HasIndex("TransmissionId");
 
@@ -201,15 +193,12 @@ namespace CarBook.Persistence.Migrations
 
             modelBuilder.Entity("CarBook.Domain.Entities.CarDescription", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
 
-                    b.Property<int>("CarId")
-                        .HasColumnType("int");
-
-                    b.Property<Guid?>("CarId1")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("CarId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
@@ -229,34 +218,29 @@ namespace CarBook.Persistence.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CarId1");
+                    b.HasIndex("CarId");
 
                     b.ToTable("CarDescriptions");
                 });
 
             modelBuilder.Entity("CarBook.Domain.Entities.CarFeature", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<bool>("Available")
                         .HasColumnType("bit");
 
-                    b.Property<int>("CarId")
-                        .HasColumnType("int");
-
-                    b.Property<Guid?>("CarId1")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("CarId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("FeatureId")
-                        .HasColumnType("int");
-
-                    b.Property<Guid?>("FeatureId1")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("FeatureId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
@@ -269,24 +253,21 @@ namespace CarBook.Persistence.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CarId1");
+                    b.HasIndex("CarId");
 
-                    b.HasIndex("FeatureId1");
+                    b.HasIndex("FeatureId");
 
                     b.ToTable("CarFeatures");
                 });
 
             modelBuilder.Entity("CarBook.Domain.Entities.CarPricing", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
 
-                    b.Property<int>("CarId")
-                        .HasColumnType("int");
-
-                    b.Property<Guid?>("CarId1")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("CarId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
@@ -297,29 +278,26 @@ namespace CarBook.Persistence.Migrations
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
-                    b.Property<int>("PricingId")
-                        .HasColumnType("int");
-
-                    b.Property<Guid?>("PricingId1")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("PricingId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CarId1");
+                    b.HasIndex("CarId");
 
-                    b.HasIndex("PricingId1");
+                    b.HasIndex("PricingId");
 
                     b.ToTable("CarPricings");
                 });
 
             modelBuilder.Entity("CarBook.Domain.Entities.Category", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
@@ -344,9 +322,8 @@ namespace CarBook.Persistence.Migrations
 
             modelBuilder.Entity("CarBook.Domain.Entities.Color", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
@@ -377,9 +354,8 @@ namespace CarBook.Persistence.Migrations
 
             modelBuilder.Entity("CarBook.Domain.Entities.Contact", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
@@ -416,9 +392,8 @@ namespace CarBook.Persistence.Migrations
 
             modelBuilder.Entity("CarBook.Domain.Entities.Feature", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
@@ -443,9 +418,8 @@ namespace CarBook.Persistence.Migrations
 
             modelBuilder.Entity("CarBook.Domain.Entities.Footer", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Address")
                         .IsRequired()
@@ -482,9 +456,8 @@ namespace CarBook.Persistence.Migrations
 
             modelBuilder.Entity("CarBook.Domain.Entities.Fuel", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
@@ -509,9 +482,8 @@ namespace CarBook.Persistence.Migrations
 
             modelBuilder.Entity("CarBook.Domain.Entities.Location", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
@@ -536,15 +508,12 @@ namespace CarBook.Persistence.Migrations
 
             modelBuilder.Entity("CarBook.Domain.Entities.Model", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
 
-                    b.Property<int>("BrandId")
-                        .HasColumnType("int");
-
-                    b.Property<Guid?>("BrandId1")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("BrandId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
@@ -552,11 +521,9 @@ namespace CarBook.Persistence.Migrations
                     b.Property<decimal>("DailyPrice")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<int>("FuelId")
-                        .HasColumnType("int");
-
-                    b.Property<Guid?>("FuelId1")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("FuelId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("ImageUrl")
                         .IsRequired()
@@ -572,31 +539,28 @@ namespace CarBook.Persistence.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("TransmissionId")
-                        .HasColumnType("int");
-
-                    b.Property<Guid?>("TransmissionId1")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("TransmissionId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("BrandId1");
+                    b.HasIndex("BrandId");
 
-                    b.HasIndex("FuelId1");
+                    b.HasIndex("FuelId");
 
-                    b.HasIndex("TransmissionId1");
+                    b.HasIndex("TransmissionId");
 
                     b.ToTable("Models");
                 });
 
             modelBuilder.Entity("CarBook.Domain.Entities.Pricing", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
@@ -621,9 +585,8 @@ namespace CarBook.Persistence.Migrations
 
             modelBuilder.Entity("CarBook.Domain.Entities.Service", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
@@ -656,9 +619,8 @@ namespace CarBook.Persistence.Migrations
 
             modelBuilder.Entity("CarBook.Domain.Entities.SocialMedia", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
@@ -691,9 +653,8 @@ namespace CarBook.Persistence.Migrations
 
             modelBuilder.Entity("CarBook.Domain.Entities.Testimonial", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Comment")
                         .IsRequired()
@@ -730,9 +691,8 @@ namespace CarBook.Persistence.Migrations
 
             modelBuilder.Entity("CarBook.Domain.Entities.Transmission", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
@@ -763,11 +723,15 @@ namespace CarBook.Persistence.Migrations
 
                     b.HasOne("CarBook.Domain.Entities.Color", "Color")
                         .WithMany("Cars")
-                        .HasForeignKey("ColorId1");
+                        .HasForeignKey("ColorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("CarBook.Domain.Entities.Model", "Model")
                         .WithMany("Cars")
-                        .HasForeignKey("ModelId1");
+                        .HasForeignKey("ModelId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("CarBook.Domain.Entities.Transmission", null)
                         .WithMany("Cars")
@@ -782,7 +746,9 @@ namespace CarBook.Persistence.Migrations
                 {
                     b.HasOne("CarBook.Domain.Entities.Car", "Car")
                         .WithMany("CarDescriptions")
-                        .HasForeignKey("CarId1");
+                        .HasForeignKey("CarId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Car");
                 });
@@ -791,11 +757,15 @@ namespace CarBook.Persistence.Migrations
                 {
                     b.HasOne("CarBook.Domain.Entities.Car", "Car")
                         .WithMany("CarFeatures")
-                        .HasForeignKey("CarId1");
+                        .HasForeignKey("CarId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("CarBook.Domain.Entities.Feature", "Feature")
                         .WithMany("CarFeatures")
-                        .HasForeignKey("FeatureId1");
+                        .HasForeignKey("FeatureId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Car");
 
@@ -806,11 +776,15 @@ namespace CarBook.Persistence.Migrations
                 {
                     b.HasOne("CarBook.Domain.Entities.Car", "Car")
                         .WithMany("CarPricings")
-                        .HasForeignKey("CarId1");
+                        .HasForeignKey("CarId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("CarBook.Domain.Entities.Pricing", "Pricing")
                         .WithMany("CarPricings")
-                        .HasForeignKey("PricingId1");
+                        .HasForeignKey("PricingId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Car");
 
@@ -821,15 +795,21 @@ namespace CarBook.Persistence.Migrations
                 {
                     b.HasOne("CarBook.Domain.Entities.Brand", "Brand")
                         .WithMany("Models")
-                        .HasForeignKey("BrandId1");
+                        .HasForeignKey("BrandId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("CarBook.Domain.Entities.Fuel", "Fuel")
                         .WithMany()
-                        .HasForeignKey("FuelId1");
+                        .HasForeignKey("FuelId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("CarBook.Domain.Entities.Transmission", "Transmission")
                         .WithMany()
-                        .HasForeignKey("TransmissionId1");
+                        .HasForeignKey("TransmissionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Brand");
 

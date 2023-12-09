@@ -8,9 +8,9 @@ namespace CarBook.Application.Features.CQRS.Commands.ModelCommands;
 
 public class RemoveModelCommand
 {
-    public Guid Id { get; set; }
+    public string Id { get; set; }
 
-    public RemoveModelCommand(Guid id)
+    public RemoveModelCommand(string id)
     {
         Id = id;
     }

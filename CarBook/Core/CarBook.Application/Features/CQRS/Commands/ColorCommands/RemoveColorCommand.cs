@@ -8,9 +8,9 @@ namespace CarBook.Application.Features.CQRS.Commands.ColorCommands;
 
 public class RemoveColorCommand
 {
-    public Guid Id { get; set; }
+    public string Id { get; set; }
 
-    public RemoveColorCommand(Guid id)
+    public RemoveColorCommand(string id)
     {
         Id = id;
     }

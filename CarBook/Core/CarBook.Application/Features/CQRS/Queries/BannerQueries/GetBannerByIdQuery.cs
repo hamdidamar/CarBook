@@ -8,9 +8,9 @@ namespace CarBook.Application.Features.CQRS.Queries.BannerQueries;
 
 public class GetBannerByIdQuery
 {
-    public Guid Id { get; set; }
+    public string Id { get; set; }
 
-    public GetBannerByIdQuery(Guid id)
+    public GetBannerByIdQuery(string id)
     {
         Id = id;
     }

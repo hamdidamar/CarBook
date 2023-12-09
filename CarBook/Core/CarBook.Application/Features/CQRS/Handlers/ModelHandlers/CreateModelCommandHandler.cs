@@ -29,10 +29,7 @@ public class CreateModelCommandHandler
                 Name = command.Name,
                 DailyPrice = command.DailyPrice,
                 ImageUrl = command.ImageUrl,
-                CreatedDate = command.CreatedDate,
-                Id = command.Id,
-                IsActive = command.IsActive,
-                IsDeleted = command.IsDeleted
+                CreatedDate = command.CreatedDate
             });
     }
 }

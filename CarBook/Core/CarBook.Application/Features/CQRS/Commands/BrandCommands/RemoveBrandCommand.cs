@@ -8,9 +8,9 @@ namespace CarBook.Application.Features.CQRS.Commands.BrandCommands;
 
 public class RemoveBrandCommand
 {
-    public Guid Id { get; set; }
+    public string Id { get; set; }
 
-    public RemoveBrandCommand(Guid id)
+    public RemoveBrandCommand(string id)
     {
         Id = id;
     }

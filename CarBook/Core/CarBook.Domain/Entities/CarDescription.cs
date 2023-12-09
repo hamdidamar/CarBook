@@ -9,6 +9,6 @@ namespace CarBook.Domain.Entities;
 public class CarDescription:BaseEntity
 {
     public string Details { get; set; }
-    public int CarId { get; set; }
+    public string CarId { get; set; }
     public virtual Car? Car { get; set; }
 }

@@ -2,6 +2,8 @@ using CarBook.Application.Features.CQRS.Handlers.AboutHandlers;
 using CarBook.Application.Features.CQRS.Handlers.BannerHandlers;
 using CarBook.Application.Features.CQRS.Handlers.BrandHandlers;
 using CarBook.Application.Features.CQRS.Handlers.CarHandlers;
+using CarBook.Application.Features.CQRS.Handlers.ColorHandlers;
+using CarBook.Application.Features.CQRS.Handlers.ModelHandlers;
 using CarBook.Application.Interfaces;
 using CarBook.Persistence.Context;
 using CarBook.Persistence.Repositories;
@@ -35,6 +37,18 @@ builder.Services.AddScoped<GetCarByIdQueryHandler>();
 builder.Services.AddScoped<CreateCarCommandHandler>();
 builder.Services.AddScoped<UpdateCarCommandHandler>();
 builder.Services.AddScoped<RemoveCarCommandHandler>();
+
+builder.Services.AddScoped<GetColorQueryHandler>();
+builder.Services.AddScoped<GetColorByIdQueryHandler>();
+builder.Services.AddScoped<CreateColorCommandHandler>();
+builder.Services.AddScoped<UpdateColorCommandHandler>();
+builder.Services.AddScoped<RemoveColorCommandHandler>();
+
+builder.Services.AddScoped<GetModelQueryHandler>();
+builder.Services.AddScoped<GetModelByIdQueryHandler>();
+builder.Services.AddScoped<CreateModelCommandHandler>();
+builder.Services.AddScoped<UpdateModelCommandHandler>();
+builder.Services.AddScoped<RemoveModelCommandHandler>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

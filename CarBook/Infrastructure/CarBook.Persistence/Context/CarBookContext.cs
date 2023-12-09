@@ -12,7 +12,7 @@ public class CarBookContext : DbContext
 {
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        optionsBuilder.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;initial Catalog=CarBookDb;integrated Security=true;TrustServerCertificate=true;");
+        optionsBuilder.UseSqlServer("Server=HAMDI\\DAMAR;initial Catalog=CarBookDb;integrated Security=true;TrustServerCertificate=true;");
     }
 
     public DbSet<About> Abouts { get; set; }

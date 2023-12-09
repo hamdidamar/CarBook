@@ -1,9 +1,12 @@
 ﻿using CarBook.Application.Interfaces;
 using CarBook.Persistence.Context;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using Microsoft.EntityFrameworkCore.Query;
 using System;
-using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -17,6 +20,8 @@ public class Repository<T> : IRepository<T> where T : class
     {
         _context = context;
     }
+
+    public IQueryable<T> Query() => _context.Set<T>();
 
     public async Task CreateAsync(T entity)
     {
@@ -33,6 +38,21 @@ public class Repository<T> : IRepository<T> where T : class
     {
         return await _context.Set<T>().FindAsync(id);
     }
+
+    public List<T> GetListWithPredicateAndIncludes(Expression<Func<T, bool>>? predicate = null, Func<IQueryable<T>, IIncludableQueryable<T, object>>? include = null,bool enableTracking = true)
+    {
+
+        IQueryable<T> queryable = Query();
+        if (!enableTracking)
+            queryable = queryable.AsNoTracking();
+        if (include != null)
+            queryable = include(queryable);
+        if (predicate != null)
+            queryable = queryable.Where(predicate);
+        return queryable.ToList();
+    }
+
+   
 
     public async Task RemoveAsync(T entity)
     {

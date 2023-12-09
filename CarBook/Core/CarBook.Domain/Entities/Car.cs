@@ -8,8 +8,8 @@ namespace CarBook.Domain.Entities;
 
 public class Car:BaseEntity
 {
-    public int ColorId { get; set; }
-    public int ModelId { get; set; }
+    public Guid ColorId { get; set; }
+    public Guid ModelId { get; set; }
     public int Kilometer { get; set; }
     public short ModelYear { get; set; }
     public string Plate { get; set; }

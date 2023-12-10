@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CarBook.Application.Features.Mediator.Results.FeatureResults;
 
-public class GetFeautreQueryResult:BaseResult
+public class GetFeatureQueryResult:BaseResult
 {
     public string Name { get; set; }
 }

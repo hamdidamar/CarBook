@@ -8,6 +8,10 @@ namespace CarBook.Application.Features.CQRS.Commands.CarCommands;
 
 public class UpdateCarCommand:BaseUpdateCommand
 {
+    public UpdateCarCommand()
+    {
+        ImageUrl = "/img/car-empty.png";
+    }
     public string ColorId { get; set; }
     public string ModelId { get; set; }
     public int Kilometer { get; set; }

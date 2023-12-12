@@ -33,6 +33,7 @@ public class GetCarWithIncludesQueryHandler
             ColorName = x.Color.Name,
             BrandName = x.Model.Brand.Name,
             ModelName = x.Model.Name,
+            ModelPrice = x.Model.DailyPrice.ToString(),
             ModelId = x.ModelId,
             Kilometer = x.Kilometer,
             ModelYear = x.ModelYear,

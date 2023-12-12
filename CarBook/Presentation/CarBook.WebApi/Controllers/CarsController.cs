@@ -13,14 +13,16 @@ namespace CarBook.WebApi.Controllers
         private readonly CreateCarCommandHandler _createCommandHandler;
         private readonly GetCarByIdQueryHandler _getCarByIdQueryHandler;
         private readonly GetCarQueryHandler _getCarQueryHandler;
+        private readonly GetCarWithIncludesQueryHandler _getCarWithIncludesQueryHandler;
         private readonly UpdateCarCommandHandler _updateCarCommandHandler;
         private readonly RemoveCarCommandHandler _removeCarCommandHandler;
 
-        public CarsController(CreateCarCommandHandler createCommandHandler, GetCarByIdQueryHandler getCarByIdQueryHandler, GetCarQueryHandler getCarQueryHandler, UpdateCarCommandHandler updateCarCommandHandler, RemoveCarCommandHandler removeCarCommandHandler)
+        public CarsController(CreateCarCommandHandler createCommandHandler, GetCarByIdQueryHandler getCarByIdQueryHandler, GetCarQueryHandler getCarQueryHandler, GetCarWithIncludesQueryHandler getCarWithIncludesQueryHandler, UpdateCarCommandHandler updateCarCommandHandler, RemoveCarCommandHandler removeCarCommandHandler)
         {
             _createCommandHandler = createCommandHandler;
             _getCarByIdQueryHandler = getCarByIdQueryHandler;
             _getCarQueryHandler = getCarQueryHandler;
+            _getCarWithIncludesQueryHandler = getCarWithIncludesQueryHandler;
             _updateCarCommandHandler = updateCarCommandHandler;
             _removeCarCommandHandler = removeCarCommandHandler;
         }
@@ -29,6 +31,14 @@ namespace CarBook.WebApi.Controllers
         public async Task<IActionResult> GetAll()
         {
             var values = await _getCarQueryHandler.Handle();
+            return Ok(values);
+        }
+
+        [HttpGet]
+        [Route("GetAllWithIncludes")]
+        public async Task<IActionResult> GetAllWithIncludes()
+        {
+            var values = await _getCarWithIncludesQueryHandler.Handle();
             return Ok(values);
         }
 

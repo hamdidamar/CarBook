@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CarBook.Application.Features.CQRS.Results.CarResults;
+namespace CarBook.Dto.CarDtos;
 
-public class GetCarWithIncludesQueryResult:BaseResult
+public class GetAllCarWithIncludesDto
 {
     public string ColorId { get; set; }
     public string ModelId { get; set; }
@@ -21,4 +21,9 @@ public class GetCarWithIncludesQueryResult:BaseResult
     public short Luggage { get; set; }
     public string ImageUrl { get; set; }
     public string DetailImageUrl { get; set; }
+    public string id { get; set; }
+    public bool isActive { get; set; }
+    public bool isDeleted { get; set; }
+    public DateTime createdDate { get; set; }
+    public DateTime? updatedDate { get; set; }
 }

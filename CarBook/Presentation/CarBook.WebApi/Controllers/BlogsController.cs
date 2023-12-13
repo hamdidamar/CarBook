@@ -1,4 +1,5 @@
-﻿using CarBook.Application.Features.Mediator.Commands.BlogCommands;
+﻿using CarBook.Application.Features.CQRS.Handlers.CarHandlers;
+using CarBook.Application.Features.Mediator.Commands.BlogCommands;
 using CarBook.Application.Features.Mediator.Queries.BlogQueries;
 using MediatR;
 using Microsoft.AspNetCore.Http;
@@ -23,6 +24,24 @@ namespace CarBook.WebApi.Controllers
             var values = await _mediator.Send(new GetBlogQuery());
             return Ok(values);
         }
+
+        [HttpGet]
+        [Route("GetAllWithIncludes")]
+        public async Task<IActionResult> GetAllWithIncludes()
+        {
+            var values = await _mediator.Send(new GetBlogWithIncludesQuery());
+            return Ok(values);
+        }
+
+        [HttpGet]
+        [Route("GetLastBlogsWithIncludes")]
+        public async Task<IActionResult> GetLastBlogsWithIncludes()
+        {
+            var values = await _mediator.Send(new GetBlogWithIncludesQuery());
+            return Ok(values.OrderByDescending(x => x.CreatedDate).Take(5).ToList());
+        }
+
+
 
         [HttpGet("id")]
         public async Task<IActionResult> GetById(string id)

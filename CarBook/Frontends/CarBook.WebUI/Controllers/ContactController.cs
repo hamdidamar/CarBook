@@ -29,7 +29,7 @@ public class ContactController : Controller
         var responseMessage = await client.PostAsync("http://localhost:5214/api/Contacts", content);
         if (responseMessage.IsSuccessStatusCode)
         {
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Default");
         }
         return View();
     }

@@ -42,6 +42,14 @@ namespace CarBook.WebApi.Controllers
             return Ok(values);
         }
 
+        [HttpGet]
+        [Route("GetLastCarsWithIncludes")]
+        public async Task<IActionResult> GetLastCarsWithIncludes()
+        {
+            var values = await _getCarWithIncludesQueryHandler.Handle();
+            return Ok(values.OrderByDescending(x=>x.CreatedDate).Take(5).ToList());
+        }
+
         [HttpGet("id")]
         public async Task<IActionResult> GetById(string id)
         {

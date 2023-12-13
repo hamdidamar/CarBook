@@ -15,6 +15,11 @@ public class CarController : Controller
 
     public async Task<IActionResult> Index()
     {
+        ViewBag.MainPage = "Ana Sayfa";
+        ViewBag.MainLink = "/default";
+        ViewBag.SubPage = "Arabalar";
+        ViewBag.PageTitle = "Arabalar";
+
         var client = _httpClientFactory.CreateClient();
         var responseMessage = await client.GetAsync("http://localhost:5214/api/Cars/GetAllWithIncludes");
         if (responseMessage.IsSuccessStatusCode)

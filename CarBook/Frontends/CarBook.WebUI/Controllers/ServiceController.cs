@@ -10,6 +10,10 @@ public class ServiceController : Controller
     
     public IActionResult Index()
     {
+        ViewBag.MainPage = "Ana Sayfa";
+        ViewBag.MainLink = "/default";
+        ViewBag.SubPage = "Hizmetlerimiz";
+        ViewBag.PageTitle = "Hizmetlerimiz";
         return View();
     }
 }

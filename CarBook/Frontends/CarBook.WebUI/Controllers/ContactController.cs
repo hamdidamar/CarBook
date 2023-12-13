@@ -17,12 +17,17 @@ public class ContactController : Controller
     [HttpGet]
     public IActionResult Index()
     {
+        ViewBag.MainPage = "Ana Sayfa";
+        ViewBag.MainLink = "/default";
+        ViewBag.SubPage = "İletişim";
+        ViewBag.PageTitle = "İletişim";
         return View();
     }
 
     [HttpPost]
     public async Task<IActionResult> Index(CreateContactDto createContactDto)
     {
+        
         var client = _httpClientFactory.CreateClient();
         var jsonData = JsonConvert.SerializeObject(createContactDto);
         StringContent content = new StringContent(jsonData,Encoding.UTF8,"application/json");

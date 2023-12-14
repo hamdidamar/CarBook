@@ -4,14 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CarBook.Domain.Entities;
+namespace CarBook.Application.Features.Mediator.Results.CarPricingResults;
 
-public class CarPricing:BaseEntity
+public class GetCarPricingQueryResult : BaseResult
 {
-    public string CarId { get; set; }
     public string PricingId { get; set; }
+    public string CarId { get; set; }
     public decimal Amount { get; set; }
-
-    public virtual Car? Car { get; set; }
-    public virtual Pricing? Pricing { get; set; }
 }

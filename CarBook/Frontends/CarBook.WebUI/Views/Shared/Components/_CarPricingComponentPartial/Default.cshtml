@@ -1,0 +1,68 @@
+﻿@model List<GetAllCarPricingWithIncludesDto>
+
+<section class="ftco-section ftco-cart">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 ftco-animate">
+                <div class="car-list">
+                    <table class="table">
+                        <thead class="thead-primary">
+                            <tr class="text-center">
+                                <th>&nbsp;</th>
+                                <th>&nbsp;</th>
+                                @foreach (var item in Model)
+                                {
+                                    <th class="bg-primary heading">@item.PricingName</th>
+                                }
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.DistinctBy(x => x.ModelId).ToList())
+                            {
+                                <tr class="">
+                                    <td class="car-image"><div class="img" style="background-image:url(@item.CarImageUrl);"></div></td>
+                                    <td class="product-name">
+                                        <h3>@item.BrandName @item.ModelName</h3>
+                                    </td>
+
+                                    @foreach (var priceName in Model.Select(x => x.PricingName).Distinct().ToList())
+                                    {
+                                        @foreach (var colTable in Model)
+                                        {
+                                            if (colTable.ModelId == item.ModelId && colTable.PricingName == priceName)
+                                            {
+                                                <td class="price">
+                                                    <p class="btn-custom"><a href="#">Hemen Kirala</a></p>
+                                                    <div class="price-rate">
+                                                        <h3>
+                                                            <span class="num"><small class="currency">₺</small> @colTable.Amount</span>
+                                                            <span class="per"> / @priceName</span>
+                                                        </h3>
+                                                        <span class="subheading">@colTable.FuelName</span>
+                                                    </div>
+                                                </td>
+                                            }
+                                           
+                                        }
+
+
+                                    }
+
+                                </tr>
+
+
+                            }
+
+
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+

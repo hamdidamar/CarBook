@@ -9,6 +9,7 @@ namespace CarBook.Application.Features.Mediator.Commands.BlogCommands;
 public class UpdateBlogCommand:BaseUpdateCommand
 {
     public string Title { get; set; }
+    public string Content { get; set; }
     public string ImgUrl { get; set; }
     public string AuthorId { get; set; }
     public string CoverImgUrl { get; set; }

@@ -1,14 +1,14 @@
-﻿using CarBook.Dto.CategoryDtos;
+﻿using CarBook.Dto.BlogDtos;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 
-namespace CarBook.WebUI.ViewComponents.AboutViewComponents;
+namespace CarBook.WebUI.ViewComponents.BlogViewComponents;
 
-public class _AboutUsComponentPartial:ViewComponent
+public class _BlogDetailRecentComponentPartial:ViewComponent
 {
     private readonly IHttpClientFactory _httpClientFactory;
 
-    public _AboutUsComponentPartial(IHttpClientFactory httpClientFactory)
+    public _BlogDetailRecentComponentPartial(IHttpClientFactory httpClientFactory)
     {
         _httpClientFactory = httpClientFactory;
     }
@@ -16,11 +16,11 @@ public class _AboutUsComponentPartial:ViewComponent
     public async Task<IViewComponentResult> InvokeAsync()
     {
         var client = _httpClientFactory.CreateClient();
-        var responseMessage = await client.GetAsync("http://localhost:5214/api/Categories");
+        var responseMessage = await client.GetAsync("http://localhost:5214/api/Blogs/GetLastBlogsWithIncludes");
         if (responseMessage.IsSuccessStatusCode)
         {
             var jsonData = await responseMessage.Content.ReadAsStringAsync();
-            var values = JsonConvert.DeserializeObject<List<GetAllCategoryDto>>(jsonData);
+            var values = JsonConvert.DeserializeObject<List<GetAllBlogWithIncludesDto>>(jsonData);
             return View(values);
         }
         return View();

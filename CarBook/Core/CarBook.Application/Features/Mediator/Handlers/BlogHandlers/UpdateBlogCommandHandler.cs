@@ -22,6 +22,7 @@ public class UpdateBlogCommandHandler : IRequestHandler<UpdateBlogCommand>
     {
         var value = await _repository.GetByIdAsync(request.Id);
         value.Title = request.Title;
+        value.Content = request.Content;
         value.ImgUrl = request.ImgUrl;
         value.AuthorId = request.AuthorId;
         value.CoverImgUrl = request.CoverImgUrl;

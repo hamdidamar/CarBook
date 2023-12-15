@@ -9,6 +9,7 @@ namespace CarBook.Domain.Entities;
 public class Blog:BaseEntity
 {
     public string Title { get; set; }
+    public string Content { get; set; }
     public string ImgUrl { get; set; }
     public string AuthorId { get; set; }
     public string CoverImgUrl { get; set; }

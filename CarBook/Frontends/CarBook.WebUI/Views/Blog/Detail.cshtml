@@ -1,0 +1,24 @@
+﻿@model GetAllBlogWithIncludesDto
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/UILayout/Index.cshtml";
+}
+
+@await Component.InvokeAsync("_MainCoverUILayoutComponentPartial")
+
+<section class="ftco-section ftco-degree-bg">
+    <div class="container">
+        <div class="row">
+            @await Component.InvokeAsync("_BlogDetailMainComponentPartial")
+            <div class="col-md-4 sidebar ftco-animate">
+                @await Component.InvokeAsync("_BlogDetailSearchBoxComponentPartial")
+                @await Component.InvokeAsync("_BlogDetailCategoryComponentPartial")
+                @await Component.InvokeAsync("_BlogDetailRecentComponentPartial")
+                @await Component.InvokeAsync("_BlogDetailTagComponentPartial")
+                @await Component.InvokeAsync("_BlogDetailParagraphComponentPartial")
+            </div>
+
+        </div>
+    </div>
+</section>
+

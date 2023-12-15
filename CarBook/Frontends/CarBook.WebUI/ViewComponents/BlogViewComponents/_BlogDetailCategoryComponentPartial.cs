@@ -2,13 +2,13 @@
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 
-namespace CarBook.WebUI.ViewComponents.AboutViewComponents;
+namespace CarBook.WebUI.ViewComponents.BlogViewComponents;
 
-public class _AboutUsComponentPartial:ViewComponent
+public class _BlogDetailCategoryComponentPartial:ViewComponent
 {
     private readonly IHttpClientFactory _httpClientFactory;
 
-    public _AboutUsComponentPartial(IHttpClientFactory httpClientFactory)
+    public _BlogDetailCategoryComponentPartial(IHttpClientFactory httpClientFactory)
     {
         _httpClientFactory = httpClientFactory;
     }

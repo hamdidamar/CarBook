@@ -9,6 +9,7 @@ namespace CarBook.Application.Features.Mediator.Results.BlogResults;
 public class GetBlogWithIncludesQueryResult:BaseResult
 {
     public string Title { get; set; }
+    public string Content { get; set; }
     public string ImgUrl { get; set; }
     public string AuthorId { get; set; }
     public string AuthorName { get; set; }

@@ -32,6 +32,7 @@ public class GetBlogWithIncludesQueryHandler:IRequestHandler<GetBlogWithIncludes
         {
             Id = x.Id,
             Title = x.Title,
+            Content = x.Content,
             ImgUrl = x.ImgUrl,
             AuthorId = x.AuthorId,
             AuthorName = x.Author.Name,

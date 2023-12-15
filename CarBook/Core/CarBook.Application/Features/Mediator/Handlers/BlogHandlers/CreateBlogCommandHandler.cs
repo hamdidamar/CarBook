@@ -24,6 +24,7 @@ public class CreateBlogCommandHandler : IRequestHandler<CreateBlogCommand>
          new Blog
          {
              Title = request.Title,
+             Content = request.Content,
              ImgUrl = request.ImgUrl,
              AuthorId = request.AuthorId,
              CoverImgUrl = request.CoverImgUrl,

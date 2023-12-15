@@ -26,6 +26,7 @@ public class GetBlogByIdQueryHandler : IRequestHandler<GetBlogByIdQuery, GetBlog
         {
             Id = value.Id,
             Title = value.Title,
+            Content = value.Content,
             ImgUrl = value.ImgUrl,
             AuthorId = value.AuthorId,
             CoverImgUrl = value.CoverImgUrl,

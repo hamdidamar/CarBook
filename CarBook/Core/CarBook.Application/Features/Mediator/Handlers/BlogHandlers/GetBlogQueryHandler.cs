@@ -26,6 +26,7 @@ public class GetBlogQueryHandler : IRequestHandler<GetBlogQuery, List<GetBlogQue
         {
             Id = x.Id,
             Title = x.Title,
+            Content = x.Content,
             ImgUrl = x.ImgUrl,
             AuthorId = x.AuthorId,
             CoverImgUrl = x.CoverImgUrl,

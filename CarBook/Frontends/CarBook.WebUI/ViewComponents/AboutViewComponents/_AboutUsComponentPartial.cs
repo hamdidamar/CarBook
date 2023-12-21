@@ -1,4 +1,4 @@
-﻿using CarBook.Dto.CategoryDtos;
+﻿using CarBook.Dto.AboutDtos;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 
@@ -16,11 +16,11 @@ public class _AboutUsComponentPartial:ViewComponent
     public async Task<IViewComponentResult> InvokeAsync()
     {
         var client = _httpClientFactory.CreateClient();
-        var responseMessage = await client.GetAsync("http://localhost:5214/api/Categories");
+        var responseMessage = await client.GetAsync("http://localhost:5214/api/Abouts");
         if (responseMessage.IsSuccessStatusCode)
         {
             var jsonData = await responseMessage.Content.ReadAsStringAsync();
-            var values = JsonConvert.DeserializeObject<List<GetAllCategoryDto>>(jsonData);
+            var values = JsonConvert.DeserializeObject<List<GetAllAboutDto>>(jsonData);
             return View(values);
         }
         return View();

@@ -15,6 +15,7 @@ public class _BlogDetailMainComponentPartial:ViewComponent
 
     public async Task<IViewComponentResult> InvokeAsync(string id)
     {
+        ViewBag.BlogId = id;
         var client = _httpClientFactory.CreateClient();
         var responseMessage = await client.GetAsync("http://localhost:5214/api/Blogs/GetAllWithIncludes");
         if (responseMessage.IsSuccessStatusCode)

@@ -37,6 +37,7 @@ public class BlogController : Controller
         ViewBag.MainLink = "/default";
         ViewBag.SubPage = "Blog";
         ViewBag.PageTitle = "Blog";
+        ViewBag.BlogId = id;
 
         var client = _httpClientFactory.CreateClient();
         var responseMessage = await client.GetAsync("http://localhost:5214/api/Blogs/GetAllWithIncludes");

@@ -16,4 +16,5 @@ public class Blog:BaseEntity
     public string CategoryId { get; set; }
     public virtual Author Author { get; set; }
     public virtual Category Category { get; set; }
+    public List<BlogTag> BlogTags { get; set; }
 }

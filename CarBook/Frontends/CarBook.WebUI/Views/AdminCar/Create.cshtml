@@ -1,0 +1,77 @@
+﻿@model CreateCarDto
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="page-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+
+                <div class="card">
+                    <div class="card-body">
+
+                        <h4 class="card-title">Yeni Araç</h4>
+                        <p class="card-subtitle mb-4">Araçlarınızı hızlı ve kolay bir şekilde ekleyin.</p>
+
+                        <form method="post">
+                            @*<div class="form-group">
+                                <label for="exampleInputEmail1">Marka</label>
+                                @Html.DropDownListFor(x=>selectedBrandId,(List<SelectListItem>) ViewBag.BrandValues,new {@class="form-control"})
+                            </div>*@
+
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Plaka</label>
+                                <input type="text" class="form-control" id="Plate" placeholder="Plaka" asp-for="Plate" />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Model</label>
+                                @Html.DropDownListFor(x=>x.ModelId,(List<SelectListItem>) ViewBag.ModelValues,new {@class="form-control"})
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Renk</label>
+                                @Html.DropDownListFor(x=>x.ColorId,(List<SelectListItem>) ViewBag.ColorValues,new {@class="form-control"})
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Kilometre</label>
+                                <input type="text" class="form-control" id="Kilometer" placeholder="Kilometre" asp-for="Kilometer" />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Model Yılı</label>
+                                <input type="text" class="form-control" id="ModelYear" placeholder="Model Yılı" asp-for="ModelYear" />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Koltuk</label>
+                                <input type="text" class="form-control" id="Seat" placeholder="Koltuk" asp-for="Seat" />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Bagaj Hacmi</label>
+                                <input type="text" class="form-control" id="Luggage" placeholder="Bagaj Hacmi" asp-for="Luggage" />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Fotoğraf Yolu</label>
+                                <input type="text" class="form-control" id="ImageUrl" placeholder="Fotoğraf Yolu" asp-for="ImageUrl" />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Detay Fotoğraf Yolu</label>
+                                <input type="text" class="form-control" id="DetailImageUrl" placeholder="Detay Fotoğraf Yolu" asp-for="DetailImageUrl" />
+                            </div>
+
+                            <button type="submit" class="btn btn-primary waves-effect waves-light">Aracı Kaydet</button>
+                        </form>
+
+                    </div> 
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

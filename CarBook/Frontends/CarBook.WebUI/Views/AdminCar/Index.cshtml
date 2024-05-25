@@ -1,4 +1,5 @@
-﻿
+﻿@model List<GetAllCarWithIncludesDto>
+
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/AdminLayout/Index.cshtml";
@@ -8,18 +9,53 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
-                <div class="page-title-box d-flex align-items-center justify-content-between">
-                    <h4 class="mb-0 font-size-18">Arabalar</h4>
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Arabalar</h4>
+                        <p class="card-subtitle mb-4">
+                            Araçlarınız ile ilgili detayları görüntüleyebilir ve yönetebilirsiniz.
+                        </p>
 
-                    <div class="page-title-right">
-                        <ol class="breadcrumb m-0">
-                            <li class="breadcrumb-item"><a href="javascript: void(0);">Sayfalar</a></li>
-                            <li class="breadcrumb-item active">Arabalar</li>
-                        </ol>
+                        <a href="/AdminCar/Create" class="btn btn-primary">Yeni Araç</a>
+                        <br/>
+                        <br/>
+                        <div class="table-responsive">
+                            <table class="table mb-0">
+                                <thead>
+                                    <tr>
+                                        <th>Plaka</th>
+                                        <th>Marka</th>
+                                        <th>Model</th>
+                                        <th>Fiyat / Gün</th>
+                                        <th>Detaylar</th>
+                                        <th>Güncelle</th>
+                                        <th>Sil</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td scope="row">@item.Plate</td>
+                                            <td>@item.BrandName</td>
+                                            <td>@item.ModelName</td>
+                                            <td>@item.ModelPrice ₺</td>
+                                            <td><a href="/AdminCar/GetById/@item.id" class="btn btn-outline-info">Görüntüle</a></td>
+                                            <td><a href="/AdminCar/Update/@item.id" class="btn btn-outline-warning">Güncelle</a></td>
+                                            <td><a href="/AdminCar/Remove/@item.id" class="btn btn-outline-danger">Sil</a></td>
+                                        </tr>
+                                    }
+                                   
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+
                     </div>
-
                 </div>
+
             </div>
+           
         </div>
 
 

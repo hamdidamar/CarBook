@@ -85,5 +85,16 @@ namespace CarBook.WebUI.Controllers
             }
             return View();
         }
+
+        public async Task<IActionResult> Remove(string id)
+        {
+            var client = _httpClientFactory.CreateClient();
+            var responseMessage = await client.DeleteAsync($"http://localhost:5214/api/Cars/{id}");
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                return RedirectToAction("Index");
+            }
+            return View();
+        }
     }
 }

@@ -35,7 +35,7 @@ namespace CarBook.WebApi.Controllers
         }
 
 
-        [HttpGet("id")]
+        [HttpGet("{id}")]
         public async Task<IActionResult> GetById(string id)
         {
             var value = await _mediator.Send(new GetBlogTagByIdQuery(id));

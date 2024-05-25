@@ -50,7 +50,7 @@ namespace CarBook.WebApi.Controllers
             return Ok(values.OrderByDescending(x=>x.CreatedDate).Take(5).ToList());
         }
 
-        [HttpGet("id")]
+        [HttpGet("{id}")]
         public async Task<IActionResult> GetById(string id)
         {
             var value = await _getCarByIdQueryHandler.Handle(new GetCarByIdQuery(id));

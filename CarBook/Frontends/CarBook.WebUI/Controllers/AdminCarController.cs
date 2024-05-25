@@ -96,5 +96,47 @@ namespace CarBook.WebUI.Controllers
             }
             return View();
         }
+
+        [HttpGet]
+        public async Task<IActionResult> Update(string id)
+        {
+            var client = _httpClientFactory.CreateClient();
+            var modelMessage = await client.GetAsync("http://localhost:5214/api/Models");
+            var colorMessage = await client.GetAsync("http://localhost:5214/api/Colors");
+            var jsonDataModels = await modelMessage.Content.ReadAsStringAsync();
+            var jsonDataColors = await colorMessage.Content.ReadAsStringAsync();
+            var valuesModels = JsonConvert.DeserializeObject<List<GetAllModelDto>>(jsonDataModels);
+            var valuesColors = JsonConvert.DeserializeObject<List<GetAllColorDto>>(jsonDataColors);
+
+            List<SelectListItem> modelValues = (from m in valuesModels select new SelectListItem { Text = m.Name, Value = m.Id }).ToList();
+            List<SelectListItem> colorValues = (from b in valuesColors select new SelectListItem { Text = b.Name, Value = b.Id }).ToList();
+
+            ViewBag.ModelValues = modelValues;
+            ViewBag.ColorValues = colorValues;
+
+            var responseMessage = await client.GetAsync($"http://localhost:5214/api/Cars/{id}");
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                var jsonData = await responseMessage.Content.ReadAsStringAsync();
+                var values = JsonConvert.DeserializeObject<UpdateCarDto>(jsonData);
+                return View(values);
+            }
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Update(UpdateCarDto updateCarDto)
+        {
+            var client = _httpClientFactory.CreateClient();
+            var jsonData = JsonConvert.SerializeObject(updateCarDto);
+            StringContent content = new StringContent(jsonData,Encoding.UTF8,"application/json");
+            var responseMessage = await client.PutAsync($"http://localhost:5214/api/Cars/",content);
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                return RedirectToAction("Index");
+            }
+            return View();
+        }
+
     }
 }

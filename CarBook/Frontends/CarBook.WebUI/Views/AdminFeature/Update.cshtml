@@ -1,0 +1,35 @@
+﻿@model UpdateFeatureDto
+@{
+    ViewData["Title"] = "Update";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="page-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+
+                <div class="card">
+                    <div class="card-body">
+
+                        <h4 class="card-title">Araç Özellik Güncelleme</h4>
+                        <p class="card-subtitle mb-4">Araçlarınızı özelliklerinizi hızlı ve kolay bir şekilde güncelleyin.</p>
+
+                        <form method="post">
+                            @Html.HiddenFor(x=>x.Id)
+
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Özellik Adı</label>
+                                <input type="text" class="form-control" id="Name" placeholder="Özellik Adı" asp-for="Name" />
+                            </div>
+
+                            <button type="submit" class="btn btn-primary waves-effect waves-light">Aracı Güncelle</button>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

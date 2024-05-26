@@ -22,7 +22,7 @@ public class GetLocationQueryHandler : IRequestHandler<GetLocationQuery, List<Ge
     public async Task<List<GetLocationQueryResult>> Handle(GetLocationQuery request, CancellationToken cancellationToken)
     {
         var values = await _repository.GetAllAsync();
-        return values.Select(x => new GetLocationQueryResult
+        return values.Where(x => x.IsActive && !x.IsDeleted).Select(x => new GetLocationQueryResult
         {
             Id = x.Id,
             Name = x.Name,

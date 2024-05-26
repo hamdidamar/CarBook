@@ -22,7 +22,7 @@ public class GetFooterQueryHandler : IRequestHandler<GetFooterQuery, List<GetFoo
     public async Task<List<GetFooterQueryResult>> Handle(GetFooterQuery request, CancellationToken cancellationToken)
     {
         var values = await _repository.GetAllAsync();
-        return values.Select(x => new GetFooterQueryResult
+        return values.Where(x => x.IsActive && !x.IsDeleted).Select(x => new GetFooterQueryResult
         {
             Id = x.Id,
             Description = x.Description,

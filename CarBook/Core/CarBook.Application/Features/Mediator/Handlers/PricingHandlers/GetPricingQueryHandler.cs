@@ -22,7 +22,7 @@ public class GetPricingQueryHandler : IRequestHandler<GetPricingQuery, List<GetP
     public async Task<List<GetPricingQueryResult>> Handle(GetPricingQuery request, CancellationToken cancellationToken)
     {
         var values = await _repository.GetAllAsync();
-        return values.Select(x => new GetPricingQueryResult
+        return values.Where(x => x.IsActive && !x.IsDeleted).Select(x => new GetPricingQueryResult
         {
             Id = x.Id,
             Name = x.Name,

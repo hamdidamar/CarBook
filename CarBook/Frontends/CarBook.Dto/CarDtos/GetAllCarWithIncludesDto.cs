@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CarBook.Dto.CarDtos;
 
-public class GetAllCarWithIncludesDto
+public class GetAllCarWithIncludesDto:BaseDto
 {
     public string ColorId { get; set; }
     public string ModelId { get; set; }
@@ -21,9 +21,4 @@ public class GetAllCarWithIncludesDto
     public short Luggage { get; set; }
     public string ImageUrl { get; set; }
     public string DetailImageUrl { get; set; }
-    public string id { get; set; }
-    public bool isActive { get; set; }
-    public bool isDeleted { get; set; }
-    public DateTime createdDate { get; set; }
-    public DateTime? updatedDate { get; set; }
 }

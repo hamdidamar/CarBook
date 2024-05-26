@@ -22,7 +22,7 @@ public class GetServiceQueryHandler : IRequestHandler<GetServiceQuery, List<GetS
     public async Task<List<GetServiceQueryResult>> Handle(GetServiceQuery request, CancellationToken cancellationToken)
     {
         var values = await _repository.GetAllAsync();
-        return values.Select(x => new GetServiceQueryResult
+        return values.Where(x => x.IsActive && !x.IsDeleted).Select(x => new GetServiceQueryResult
         {
             Id = x.Id,
             Title = x.Title,

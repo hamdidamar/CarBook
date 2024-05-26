@@ -22,7 +22,7 @@ public class GetSocialMediaQueryHandler : IRequestHandler<GetSocialMediaQuery, L
     public async Task<List<GetSocialMediaQueryResult>> Handle(GetSocialMediaQuery request, CancellationToken cancellationToken)
     {
         var values = await _repository.GetAllAsync();
-        return values.Select(x => new GetSocialMediaQueryResult
+        return values.Where(x => x.IsActive && !x.IsDeleted).Select(x => new GetSocialMediaQueryResult
         {
             Id = x.Id,
             Name = x.Name,

@@ -1,5 +1,4 @@
-﻿@model List<GetAllCarWithIncludesDto>
-
+﻿@model List<GetAllFeatureDto>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/AdminLayout/Index.cshtml";
@@ -12,12 +11,12 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Arabalar</h4>
+                        <h4 class="card-title">Araç Özellikleri</h4>
                         <p class="card-subtitle mb-4">
-                            Araçlarınız ile ilgili detayları görüntüleyebilir ve yönetebilirsiniz.
+                            Araçlarınız için seçebileceğiniz  özellilklerinizi burada görüntüleyebilir ve yönetebilirsiniz.
                         </p>
 
-                        <a href="/AdminCar/Create" class="btn btn-primary">Yeni Araç</a>
+                        <a href="/AdminFeature/Create" class="btn btn-primary">Yeni Özellik</a>
                         <br />
                         <br />
                         <div class="table-responsive">
@@ -25,12 +24,7 @@
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>Plaka</th>
-                                        <th>Marka</th>
-                                        <th>Model</th>
-                                        <th>Fiyat / Gün</th>
-                                        <th>Sitede Görüntüle</th>
-                                        <th>Detaylar</th>
+                                        <th>Özellik Adı</th>
                                         <th>Güncelle</th>
                                         <th>Sil</th>
                                     </tr>
@@ -41,14 +35,9 @@
                                         count++;
                                         <tr>
                                             <td scope="row">@count</td>
-                                            <td>@item.Plate</td>
-                                            <td>@item.BrandName</td>
-                                            <td>@item.ModelName</td>
-                                            <td>@item.ModelPrice ₺</td>
-                                            <td><a href="/AdminCar/GetById/@item.Id" class="btn btn-outline-dark">Sitede Görüntüle</a></td>
-                                            <td><a href="/AdminCar/GetById/@item.Id" class="btn btn-outline-info">Detay</a></td>
-                                            <td><a href="/AdminCar/Update/@item.Id" class="btn btn-outline-warning">Güncelle</a></td>
-                                            <td><a href="/AdminCar/Remove/@item.Id" class="btn btn-outline-danger">Sil</a></td>
+                                            <td>@item.Name</td>
+                                            <td><a href="/AdminFeature/Update/@item.Id" class="btn btn-outline-warning">Güncelle</a></td>
+                                            <td><a href="/AdminFeature/Remove/@item.Id" class="btn btn-outline-danger">Sil</a></td>
                                         </tr>
                                     }
 
@@ -67,4 +56,3 @@
 
     </div>
 </div>
-

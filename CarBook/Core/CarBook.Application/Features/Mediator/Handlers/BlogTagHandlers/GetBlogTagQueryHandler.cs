@@ -22,7 +22,7 @@ public class GetBlogTagQueryHandler : IRequestHandler<GetBlogTagQuery, List<GetB
     public async Task<List<GetBlogTagQueryResult>> Handle(GetBlogTagQuery request, CancellationToken cancellationToken)
     {
         var values = await _repository.GetAllAsync();
-        return values.Select(x => new GetBlogTagQueryResult
+        return values.Where(x => x.IsActive && !x.IsDeleted).Select(x => new GetBlogTagQueryResult
         {
             Id = x.Id,
             Title = x.Title,

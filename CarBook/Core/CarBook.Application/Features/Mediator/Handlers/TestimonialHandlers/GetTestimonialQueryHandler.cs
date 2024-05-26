@@ -22,7 +22,7 @@ public class GetTestimonialQueryHandler : IRequestHandler<GetTestimonialQuery, L
     public async Task<List<GetTestimonialQueryResult>> Handle(GetTestimonialQuery request, CancellationToken cancellationToken)
     {
         var values = await _repository.GetAllAsync();
-        return values.Select(x => new GetTestimonialQueryResult
+        return values.Where(x => x.IsActive && !x.IsDeleted).Select(x => new GetTestimonialQueryResult
         {
             Id = x.Id,
             Name = x.Name,

@@ -22,7 +22,7 @@ public class GetCarPricingQueryHandler : IRequestHandler<GetCarPricingQuery, Lis
     public async Task<List<GetCarPricingQueryResult>> Handle(GetCarPricingQuery request, CancellationToken cancellationToken)
     {
         var values = await _repository.GetAllAsync();
-        return values.Select(x => new GetCarPricingQueryResult
+        return values.Where(x => x.IsActive && !x.IsDeleted).Select(x => new GetCarPricingQueryResult
         {
             Id = x.Id,
             CarId = x.CarId,

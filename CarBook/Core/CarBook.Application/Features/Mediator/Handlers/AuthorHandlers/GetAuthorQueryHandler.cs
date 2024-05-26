@@ -22,7 +22,7 @@ public class GetAuthorQueryHandler : IRequestHandler<GetAuthorQuery, List<GetAut
     public async Task<List<GetAuthorQueryResult>> Handle(GetAuthorQuery request, CancellationToken cancellationToken)
     {
         var values = await _repository.GetAllAsync();
-        return values.Select(x => new GetAuthorQueryResult
+        return values.Where(x => x.IsActive && !x.IsDeleted).Select(x => new GetAuthorQueryResult
         {
             Id = x.Id,
             Description = x.Description,

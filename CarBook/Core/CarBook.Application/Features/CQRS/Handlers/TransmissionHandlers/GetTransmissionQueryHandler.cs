@@ -30,6 +30,6 @@ public class GetTransmissionQueryHandler
             IsDeleted = x.IsDeleted,
             UpdatedDate = x.UpdatedDate
 
-        }).ToList();
+        }).OrderBy(x => x.CreatedDate).ToList();
     }
 }

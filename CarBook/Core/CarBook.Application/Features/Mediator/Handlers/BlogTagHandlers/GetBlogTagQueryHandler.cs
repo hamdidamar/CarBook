@@ -32,6 +32,6 @@ public class GetBlogTagQueryHandler : IRequestHandler<GetBlogTagQuery, List<GetB
             IsDeleted = x.IsDeleted,
             UpdatedDate = x.UpdatedDate
 
-        }).ToList();
+        }).OrderBy(x => x.CreatedDate).ToList();
     }
 }

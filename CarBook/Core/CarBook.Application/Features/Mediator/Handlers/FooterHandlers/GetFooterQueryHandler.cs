@@ -34,6 +34,6 @@ public class GetFooterQueryHandler : IRequestHandler<GetFooterQuery, List<GetFoo
             IsDeleted = x.IsDeleted,
             UpdatedDate = x.UpdatedDate
 
-        }).ToList();
+        }).OrderBy(x => x.CreatedDate).ToList();
     }
 }

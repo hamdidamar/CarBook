@@ -32,6 +32,6 @@ public class GetAboutQueryHandler
             IsDeleted = x.IsDeleted,
             UpdatedDate=x.UpdatedDate
             
-        }).ToList();
+        }).OrderBy(x => x.CreatedDate).ToList();
     }
 }

@@ -31,6 +31,6 @@ public class GetFeatureQueryHandler : IRequestHandler<GetFeatureQuery, List<GetF
             IsDeleted = x.IsDeleted,
             UpdatedDate = x.UpdatedDate
 
-        }).ToList();
+        }).OrderBy(x => x.CreatedDate).ToList();
     }
 }

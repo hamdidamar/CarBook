@@ -46,6 +46,6 @@ public class GetBlogWithIncludesQueryHandler:IRequestHandler<GetBlogWithIncludes
             IsDeleted = x.IsDeleted,
             UpdatedDate = x.UpdatedDate
 
-        }).ToList();
+        }).OrderByDescending(x => x.CreatedDate).ToList();
     }
 }

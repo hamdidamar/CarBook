@@ -33,7 +33,7 @@ public class GetCarPricingQueryHandler : IRequestHandler<GetCarPricingQuery, Lis
             IsDeleted = x.IsDeleted,
             UpdatedDate = x.UpdatedDate
 
-        }).ToList();
+        }).OrderBy(x => x.CreatedDate).ToList();
     }
 }
 

@@ -31,6 +31,6 @@ public class GetLocationQueryHandler : IRequestHandler<GetLocationQuery, List<Ge
             IsDeleted = x.IsDeleted,
             UpdatedDate = x.UpdatedDate
 
-        }).ToList();
+        }).OrderBy(x => x.CreatedDate).ToList();
     }
 }

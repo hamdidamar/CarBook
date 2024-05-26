@@ -33,6 +33,6 @@ public class GetAuthorQueryHandler : IRequestHandler<GetAuthorQuery, List<GetAut
             IsDeleted = x.IsDeleted,
             UpdatedDate = x.UpdatedDate
 
-        }).ToList();
+        }).OrderBy(x => x.CreatedDate).ToList();
     }
 }

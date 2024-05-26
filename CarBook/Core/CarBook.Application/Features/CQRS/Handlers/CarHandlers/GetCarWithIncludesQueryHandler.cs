@@ -47,6 +47,6 @@ public class GetCarWithIncludesQueryHandler
             IsDeleted = x.IsDeleted,
             UpdatedDate = x.UpdatedDate
 
-        }).ToList();
+        }).OrderBy(x => x.CreatedDate).ToList();
     }
 }

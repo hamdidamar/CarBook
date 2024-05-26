@@ -31,6 +31,6 @@ public class GetPricingQueryHandler : IRequestHandler<GetPricingQuery, List<GetP
             IsDeleted = x.IsDeleted,
             UpdatedDate = x.UpdatedDate
 
-        }).ToList();
+        }).OrderBy(x => x.CreatedDate).ToList();
     }
 }

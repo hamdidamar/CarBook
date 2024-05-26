@@ -1,0 +1,58 @@
+﻿@model List<GetAllBrandDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+    var count = 0;
+}
+
+<div class="page-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Araç Markaları</h4>
+                        <p class="card-subtitle mb-4">
+                            Araçlarınız için markalarınızı burada görüntüleyebilir ve yönetebilirsiniz.
+                        </p>
+
+                        <a href="/AdminBrand/Create" class="btn btn-primary">Yeni Marka</a>
+                        <br />
+                        <br />
+                        <div class="table-responsive">
+                            <table class="table mb-0">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Marka Adı</th>
+                                        <th>Güncelle</th>
+                                        <th>Sil</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        count++;
+                                        <tr>
+                                            <td scope="row">@count</td>
+                                            <td>@item.Name</td>
+                                            <td><a href="/AdminBrand/Update/@item.Id" class="btn btn-outline-warning">Güncelle</a></td>
+                                            <td><a href="/AdminBrand/Remove/@item.Id" class="btn btn-outline-danger">Sil</a></td>
+                                        </tr>
+                                    }
+
+
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+</div>

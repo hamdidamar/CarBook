@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace CarBook.Dto.BrandDtos
 {
-    public class GetAllBrandDto:BaseDto
+    public class UpdateBrandDto
     {
+        public string Id { get; set; }
+        public bool IsActive { get; set; } = true;
+        public bool IsDeleted { get; set; } = false;
         public string Name { get; set; }
-
     }
 }

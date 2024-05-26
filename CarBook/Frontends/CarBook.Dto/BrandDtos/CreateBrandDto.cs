@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace CarBook.Dto.BrandDtos
 {
-    public class GetAllBrandDto:BaseDto
+    public class CreateBrandDto
     {
         public string Name { get; set; }
-
     }
 }

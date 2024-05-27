@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CarBook.Dto.CategoryDtos;
-
-public class GetAllCategoryDto:BaseDto
+namespace CarBook.Dto.CategoryDtos
 {
-    public string Name { get; set; }
- 
-
+    public class CreateCategoryDto
+    {
+        public string Name { get; set; }
+    }
 }

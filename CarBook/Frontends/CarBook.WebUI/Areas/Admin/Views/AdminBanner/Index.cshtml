@@ -1,0 +1,60 @@
+﻿@model List<GetAllBannerDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="page-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Banner Alanı</h4>
+                        <p class="card-subtitle mb-4">
+                            Site ana sayfanızda banner alanında bulunan bilgileri görüntüleyebilir ve yönetebilirsiniz. Lütfen sadece tek bir veri girişi yapınız.
+                        </p>
+
+                        <a href="/Admin/AdminBanner/Create" class="btn btn-primary">Yeni Banner</a>
+                        <br />
+                        <br />
+                        <div class="table-responsive">
+                            <table class="table mb-0">
+                                <thead>
+                                    <tr>
+                                        <th>Başlık</th>
+                                        <th>Açıklama</th>
+                                        <th>Video Url</th>
+                                        <th>Video Açıklama</th>
+                                        <th>Güncelle</th>
+                                        <th>Sil</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>@item.Title</td>
+                                            <td>@item.Description</td>
+                                            <td>@item.VideoUrl</td>
+                                            <td>@item.VideoDescription</td>
+                                            <td><a href="/Admin/AdminBanner/Update/@item.Id" class="btn btn-outline-warning">Güncelle</a></td>
+                                            <td><a href="/Admin/AdminBanner/Remove/@item.Id" class="btn btn-outline-danger">Sil</a></td>
+                                        </tr>
+                                    }
+
+
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+</div>

@@ -6,12 +6,12 @@ using System.Text;
 namespace CarBook.WebUI.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Route("Admin/AdminBanner")]
-    public class AdminBannerController : Controller
+    [Route("Admin/Banner")]
+    public class BannerController : Controller
     {
         private readonly IHttpClientFactory _httpClientFactory;
 
-        public AdminBannerController(IHttpClientFactory httpClientFactory)
+        public BannerController(IHttpClientFactory httpClientFactory)
         {
             _httpClientFactory = httpClientFactory;
         }
@@ -48,7 +48,7 @@ namespace CarBook.WebUI.Areas.Admin.Controllers
             var responseMessage = await client.PostAsync("http://localhost:5214/api/Banners/", content);
             if (responseMessage.IsSuccessStatusCode)
             {
-                return RedirectToAction("Index", "AdminBanner", new { area = "Admin" });
+                return RedirectToAction("Index", "Banner", new { area = "Admin" });
             }
             return View();
         }

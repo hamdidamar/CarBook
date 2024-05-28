@@ -4,11 +4,11 @@
     {
         <h2 class="mb-3">@item.Title</h2>
         <p>@item.Content</p>
-        @await Component.InvokeAsync("_BlogDetailMainTagsComponentPartial",new {id = item.id})
+        @await Component.InvokeAsync("_BlogDetailMainTagsComponentPartial",new {id = item.Id})
         @await Component.InvokeAsync("_BlogDetailMainAuthorComponentPartial",new {id = item.AuthorId})
 
         <div class="pt-5 mt-5">
-            @await Component.InvokeAsync("_BlogDetailMainCommentListComponentPartial")
+            @await Component.InvokeAsync("_BlogDetailMainCommentListComponentPartial",new {id = item.Id})
             @await Component.InvokeAsync("_BlogDetailMainCommetFormComponentPartial")
         </div>
     }

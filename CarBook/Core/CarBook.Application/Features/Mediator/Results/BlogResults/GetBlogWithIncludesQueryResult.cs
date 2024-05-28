@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CarBook.Domain.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,4 +19,5 @@ public class GetBlogWithIncludesQueryResult:BaseResult
     public string CoverImgUrl { get; set; }
     public string CategoryId { get; set; }
     public string CategoryName { get; set; }
+    public List<BlogComment> BlogComments { get; set; }
 }

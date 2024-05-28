@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CarBook.Dto.BlogDtos;
 
-public class GetAllBlogWithIncludesDto
+public class GetAllBlogWithIncludesDto:BaseDto
 {
     public string Title { get; set; }
     public string Content { get; set; }
@@ -18,9 +18,5 @@ public class GetAllBlogWithIncludesDto
     public string CoverImgUrl { get; set; }
     public string CategoryId { get; set; }
     public string CategoryName { get; set; }
-    public string id { get; set; }
-    public bool isActive { get; set; }
-    public bool isDeleted { get; set; }
-    public DateTime createdDate { get; set; }
-    public DateTime? updatedDate { get; set; }
+    public List<BlogComment> BlogComments { get; set; }
 }

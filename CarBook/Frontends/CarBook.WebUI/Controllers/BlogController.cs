@@ -45,7 +45,7 @@ public class BlogController : Controller
         {
             var jsonData = await responseMessage.Content.ReadAsStringAsync();
             var values = JsonConvert.DeserializeObject<List<GetAllBlogWithIncludesDto>>(jsonData);
-            return View(values.Where(x=>x.id == id).FirstOrDefault());
+            return View(values.Where(x=>x.Id == id).FirstOrDefault());
         }
         return View();
     }

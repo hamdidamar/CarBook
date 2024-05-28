@@ -1,0 +1,61 @@
+﻿@model List<GetAllBlogCommentWithIncludesDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+    var count = 0;
+}
+
+<div class="page-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Blog Yorumları</h4>
+                        <p class="card-subtitle mb-4">
+                            Sitenizde yayınlanacak blog yorumlarınızı burada görüntüleyebilir ve yönetebilirsiniz
+                        </p>
+
+                        <br />
+                        <br />
+                        <div class="table-responsive">
+                            <table class="table mb-0">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Adı</th>
+                                        <th>Yorum İçerik</th>
+                                        <th>Blog Başlık</th>
+                                        <th>Tarih</th>
+                                        <th>Kaldır</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        count++;
+                                        <tr>
+                                            <td>@count</td>
+                                            <td>@item.Name</td>
+                                            <td>@item.Content</td>
+                                            <td>@item.BlogTitle</td>
+                                            <td>@item.CreatedDate.ToString("dd/MM/yyyy")</td>
+                                            <td><a href="/Admin/BlogComment/Remove/@item.Id" class="btn btn-outline-danger">Kaldır</a></td>
+                                        </tr>
+                                    }
+
+
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+</div>

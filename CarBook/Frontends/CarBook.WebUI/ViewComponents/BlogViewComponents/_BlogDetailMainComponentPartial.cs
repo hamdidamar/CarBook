@@ -22,7 +22,7 @@ public class _BlogDetailMainComponentPartial:ViewComponent
         {
             var jsonData = await responseMessage.Content.ReadAsStringAsync();
             var values = JsonConvert.DeserializeObject<List<GetAllBlogWithIncludesDto>>(jsonData);
-            return View(values.Where(x=>x.id == id).ToList());
+            return View(values.Where(x=>x.Id == id).ToList());
         }
         return View();
     }

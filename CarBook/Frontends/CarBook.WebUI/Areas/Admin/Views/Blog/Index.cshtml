@@ -1,0 +1,63 @@
+﻿@model List<GetAllBlogWithIncludesDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+    var count = 0;
+}
+
+<div class="page-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Bloglar</h4>
+                        <p class="card-subtitle mb-4">
+                            Sitenizde yayınlanacak bloglarınızı burada görüntüleyebilir ve yönetebilirsiniz
+                        </p>
+
+                        <div class="table-responsive">
+                            <table class="table mb-0">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Başlık</th>
+                                        <th>Yazar</th>
+                                        <th>Kategori</th>
+                                        <th>Tarih</th>
+                                        <th>Blog Görüntüle</th>
+                                        <th>Yorumlar</th>
+                                        <th>Kaldır</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        count++;
+                                        <tr>
+                                            <td>@count</td>
+                                            <td>@item.Title</td>
+                                            <td>@item.AuthorName</td>
+                                            <td>@item.CategoryName</td>
+                                            <td>@item.CreatedDate.ToString("dd/MM/yyyy")</td>
+                                            <td><a href="/Blog/Detail/@item.Id" class="btn btn-outline-primary">Blog Gör</a></td>
+                                            <td><a href="/Admin/BlogComment/BlogCommentsById/@item.Id" class="btn btn-outline-secondary">Yorumlar</a></td>
+                                            <td><a href="/Admin/Blog/Remove/@item.Id" class="btn btn-outline-danger">Kaldır</a></td>
+                                        </tr>
+                                    }
+
+
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+</div>

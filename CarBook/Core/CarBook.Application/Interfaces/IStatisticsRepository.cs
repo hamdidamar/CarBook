@@ -19,7 +19,7 @@ namespace CarBook.Application.Interfaces
         int GetCarCountByTranmissionIsAuto();
         string GetBrandNameByMaxCar();
         string GetBlogTitleByMaxBlogComment();
-        int GetCarCountByKmSmallerThen1000();
+        int GetCarCountByKmSmallerThenTousand();
         int GetCarCountByFuelGasolineOrDiesel();
         int GetCarCountByFuelElectric();
         string GetCarBrandAndModelByRentPriceDailyMax();

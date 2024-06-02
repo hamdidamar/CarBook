@@ -102,7 +102,7 @@ namespace CarBook.Persistence.Repositories
             return _context.Cars.Where(x => x.Model.Fuel.Name == "Benzin" || x.Model.Fuel.Name == "Dizel").Count();
         }
 
-        public int GetCarCountByKmSmallerThen1000()
+        public int GetCarCountByKmSmallerThenTousand()
         {
             return _context.Cars.Where(x => x.Kilometer <= 1000).Count();
         }

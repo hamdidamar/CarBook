@@ -37,6 +37,13 @@ namespace CarBook.WebApi.Controllers
             return Ok(value);
         }
 
+        [HttpGet("GetBlogCount")]
+        public async Task<IActionResult> GetBlogCount()
+        {
+            var value = await _mediator.Send(new GetBlogCountQuery());
+            return Ok(value);
+        }
+
         [HttpGet("GetBrandCount")]
         public async Task<IActionResult> GetBrandCount()
         {

@@ -1,7 +1,6 @@
 ﻿using CarBook.Application.Features.Mediator.Queries.StatisticsQueries;
 using CarBook.Application.Features.Mediator.Results.StatisticsResults;
 using CarBook.Application.Interfaces;
-using CarBook.Domain.Entities;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -11,21 +10,18 @@ using System.Threading.Tasks;
 
 namespace CarBook.Application.Features.Mediator.Handlers.StatisticsHandlers
 {
-    public class GetCarCountQueryHandler : IRequestHandler<GetCarCountQuery, GetCarCountQueryResult>
+    public class GetAuthorCountQueryHandler : IRequestHandler<GetAuthorCountQuery, GetAuthorCountQueryResult>
     {
         private readonly IStatisticsRepository _repository;
-        public GetCarCountQueryHandler(IStatisticsRepository repository)
+        public GetAuthorCountQueryHandler(IStatisticsRepository repository)
         {
             _repository = repository;
         }
 
-        public async Task<GetCarCountQueryResult> Handle(GetCarCountQuery request, CancellationToken cancellationToken)
+        public async Task<GetAuthorCountQueryResult> Handle(GetAuthorCountQuery request, CancellationToken cancellationToken)
         {
-            var value =  _repository.GetCarCount();
-            return new GetCarCountQueryResult
-            {
-                Count = value,
-            };
+            var value = _repository.GetAuthorCount();
+            return new GetAuthorCountQueryResult { Count = value };
         }
     }
 }

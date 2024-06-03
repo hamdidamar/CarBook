@@ -1,31 +1,29 @@
 ﻿using CarBook.Application.Features.Mediator.Queries.StatisticsQueries;
 using CarBook.Application.Features.Mediator.Results.StatisticsResults;
 using CarBook.Application.Interfaces;
-using CarBook.Domain.Entities;
 using MediatR;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace CarBook.Application.Features.Mediator.Handlers.StatisticsHandlers
 {
-    public class GetCarCountQueryHandler : IRequestHandler<GetCarCountQuery, GetCarCountQueryResult>
+    public class GetBrandNameByMaxCarQueryHandler : IRequestHandler<GetBrandNameByMaxCarQuery, GetBrandNameByMaxCarQueryResult>
     {
         private readonly IStatisticsRepository _repository;
-        public GetCarCountQueryHandler(IStatisticsRepository repository)
+
+        public GetBrandNameByMaxCarQueryHandler(IStatisticsRepository repository)
         {
             _repository = repository;
         }
 
-        public async Task<GetCarCountQueryResult> Handle(GetCarCountQuery request, CancellationToken cancellationToken)
+        public async Task<GetBrandNameByMaxCarQueryResult> Handle(GetBrandNameByMaxCarQuery request, CancellationToken cancellationToken)
         {
-            var value =  _repository.GetCarCount();
-            return new GetCarCountQueryResult
-            {
-                Count = value,
-            };
+            var value = _repository.GetBrandNameByMaxCar();
+            return new GetBrandNameByMaxCarQueryResult { Name = value };
         }
     }
 }

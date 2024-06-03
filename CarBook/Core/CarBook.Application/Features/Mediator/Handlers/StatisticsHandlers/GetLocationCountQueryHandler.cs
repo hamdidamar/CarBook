@@ -11,21 +11,17 @@ using System.Threading.Tasks;
 
 namespace CarBook.Application.Features.Mediator.Handlers.StatisticsHandlers
 {
-    public class GetCarCountQueryHandler : IRequestHandler<GetCarCountQuery, GetCarCountQueryResult>
+    public class GetLocationCountQueryHandler : IRequestHandler<GetLocationCountQuery, GetLocationCountQueryResult>
     {
         private readonly IStatisticsRepository _repository;
-        public GetCarCountQueryHandler(IStatisticsRepository repository)
+        public GetLocationCountQueryHandler(IStatisticsRepository repository)
         {
             _repository = repository;
         }
-
-        public async Task<GetCarCountQueryResult> Handle(GetCarCountQuery request, CancellationToken cancellationToken)
+        public async Task<GetLocationCountQueryResult> Handle(GetLocationCountQuery request, CancellationToken cancellationToken)
         {
-            var value =  _repository.GetCarCount();
-            return new GetCarCountQueryResult
-            {
-                Count = value,
-            };
+            var value = _repository.GetLocationCount();
+            return new GetLocationCountQueryResult { Count = value };
         }
     }
 }

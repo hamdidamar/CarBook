@@ -39,5 +39,6 @@ public class CarBookContext : DbContext
     public DbSet<Blog> Blogs { get; set; }
     public DbSet<BlogTag> BlogTags { get; set; }
     public DbSet<BlogComment> BlogComments { get; set; }
+    public DbSet<RentACar> RentACars { get; set; }
     
 }

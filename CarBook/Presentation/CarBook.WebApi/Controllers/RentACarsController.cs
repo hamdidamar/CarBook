@@ -16,9 +16,14 @@ namespace CarBook.WebApi.Controllers
             _mediator = mediator;
         }
 
-        [HttpPost]
-        public async Task<IActionResult> GetRentACarsByLocation(GetRentACarQuery query)
+        [HttpGet]
+        public async Task<IActionResult> GetRentACarsByLocation(string locationId)
         {
+            GetRentACarQuery query = new GetRentACarQuery()
+            {
+                LocationId = locationId,
+                Avaible = true
+            };
             var values = await _mediator.Send(query);
             return Ok(values);
         }

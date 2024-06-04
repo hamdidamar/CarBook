@@ -1,11 +1,90 @@
-﻿@{
+﻿@model GetAllLocationDto
+@{
     ViewData["Title"] = "Index";
     Layout = "~/Views/UILayout/Index.cshtml";
+    var LocationId = "";
 }
 
-
+<style>
+    #LocationId {
+        background: #1089FF !important; 
+        color: white !important;
+    }
+</style>
 @await Component.InvokeAsync("_BannerComponentPartial")
-@await Component.InvokeAsync("_RentACarFilterComponentPartial")
+<section class="ftco-section ftco-no-pt bg-light">
+    <div class="container">
+        <div class="row no-gutters">
+            <div class="col-md-12	featured-top">
+                <div class="row no-gutters">
+                    <div class="col-md-4 d-flex align-items-center">
+                        <form method="post" class="request-form ftco-animate bg-primary">
+                            <h2>İhtiyacınıza Uygun Aracı Kolayca Kiralayın</h2>
+                            <div class="form-group">
+                                <label for="" class="label">Alış Noktası</label>
+                                @Html.DropDownList(LocationId,(List<SelectListItem>)ViewBag.Locations,new {@class ="form-control", @id="LocationId",  name="LocationId" })
+                            </div>
+
+                            <div class="d-flex">
+                                <div class="form-group mr-2">
+                                    <label for="" class="label">Alış Tarihi</label>
+                                    <input type="text" class="form-control" name="book_pick_date" id="book_pick_date" placeholder="Alış Tarihi">
+                                </div>
+                                <div class="form-group ml-2">
+                                    <label for="" class="label">Teslim Tarihi</label>
+                                    <input type="text" class="form-control" id="book_off_date" name="book_off_date" placeholder="Teslim Tarihi">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="" class="label">Alış Saati</label>
+                                <input type="text" class="form-control" id="time_pick" name="time_pick" placeholder="Alış Saati">
+                            </div>
+                            <div class="form-group">
+                                <label for="" class="label">Teslim Saati</label>
+                                <input type="text" class="form-control" id="time_off" name="time_off" placeholder="Teslim Saati">
+                            </div>
+                            <div class="form-group">
+                                <button class="btn btn-secondary py-3 px-4">Uygun Araçları Görüntüle</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-md-8 d-flex align-items-center">
+                        <div class="services-wrap rounded-right w-100">
+                            <h3 class="heading-section mb-4">Araç Kiralamada Hızlı, Güvenilir ve Kolay Çözümler </h3>
+                            <div class="row d-flex mb-4">
+                                <div class="col-md-4 d-flex align-self-stretch ftco-animate">
+                                    <div class="services w-100 text-center">
+                                        <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-route"></span></div>
+                                        <div class="text w-100">
+                                            <h3 class="heading mb-2">Aracınızı almak istediğiniz lokasyonu seçin</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 d-flex align-self-stretch ftco-animate">
+                                    <div class="services w-100 text-center">
+                                        <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-handshake"></span></div>
+                                        <div class="text w-100">
+                                            <h3 class="heading mb-2">İhtiyacınıza uygun araçları görüntüleyin</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 d-flex align-self-stretch ftco-animate">
+                                    <div class="services w-100 text-center">
+                                        <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-rent"></span></div>
+                                        <div class="text w-100">
+                                            <h3 class="heading mb-2">Rezervasyonunuzu yapın, Kolayca teslim alın</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <p><a href="#" class="btn btn-primary py-3 px-4">Şimdi Kirala</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</section>
+
 @await Component.InvokeAsync("_LastCarsWithIncludesComponentPartial")
 @await Component.InvokeAsync("_AboutUsComponentPartial")
 @await Component.InvokeAsync("_ServiceComponentPartial")

@@ -10,7 +10,7 @@
                             <tr class="text-center">
                                 <th>&nbsp;</th>
                                 <th>&nbsp;</th>
-                                @foreach (var item in Model)
+                                @foreach (var item in Model.DistinctBy(x=>x.PricingId).ToList())
                                 {
                                     <th class="bg-primary heading">@item.PricingName</th>
                                 }
@@ -18,7 +18,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach (var item in Model.DistinctBy(x => x.ModelId).ToList())
+                            @foreach (var item in Model.DistinctBy(x => x.CarId).ToList())
                             {
                                 <tr class="">
                                     <td class="car-image"><div class="img" style="background-image:url(@item.CarImageUrl);"></div></td>

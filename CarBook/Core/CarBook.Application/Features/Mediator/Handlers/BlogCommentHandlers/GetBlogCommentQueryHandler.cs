@@ -30,6 +30,7 @@ public class GetBlogCommentQueryHandler : IRequestHandler<GetBlogCommentQuery, L
         {
             Id = x.Id,
             Name = x.Name,
+            Email = x.Email,
             Content = x.Content,
             BlogId = x.BlogId,
             BlogTitle = x.Blog.Title,

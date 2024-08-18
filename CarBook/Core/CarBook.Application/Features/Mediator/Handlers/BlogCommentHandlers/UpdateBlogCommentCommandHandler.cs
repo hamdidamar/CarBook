@@ -22,6 +22,7 @@ public class UpdateBlogCommentCommandHandler : IRequestHandler<UpdateBlogComment
     {
         var value = await _repository.GetByIdAsync(request.Id);
         value.Name = request.Name;
+        value.Email = request.Email;
         value.Content = request.Content;
         value.BlogId = request.BlogId;
         

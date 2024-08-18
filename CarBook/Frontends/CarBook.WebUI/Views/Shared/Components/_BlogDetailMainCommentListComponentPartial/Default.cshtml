@@ -1,6 +1,17 @@
 ﻿@model List<GetAllBlogCommentWithIncludesDto>
 
-<h3 class="mb-5">@Model.Count Yorum</h3>
+@if (@Model.Count > 0){
+    <h4 class="mb-5">
+        @Model.Count
+        Yorum</h4>
+}
+else
+{
+    <h4 class="mb-5">
+        Bu blog yazısına daha önce yorum yapılmamıştır. İlk yorumu eklemek ister misiniz?
+    </h4>
+}
+
 <ul class="comment-list">
     @foreach (var item in Model)
     {

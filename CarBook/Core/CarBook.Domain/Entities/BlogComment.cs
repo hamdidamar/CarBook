@@ -11,5 +11,6 @@ public class BlogComment:BaseEntity
     public string Name { get; set; }
     public string Content { get; set; }
     public string BlogId { get; set; }
+    public string Email { get; set; }
     public virtual Blog Blog { get; set; }
 }

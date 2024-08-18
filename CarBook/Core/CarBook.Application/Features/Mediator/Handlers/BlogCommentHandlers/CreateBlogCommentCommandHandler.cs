@@ -24,6 +24,7 @@ public class CreateBlogCommentCommandHandler : IRequestHandler<CreateBlogComment
          new BlogComment
          {
              Name = request.Name,
+             Email = request.Email,
              Content = request.Content,
              BlogId = request.BlogId,
              CreatedDate = request.CreatedDate,

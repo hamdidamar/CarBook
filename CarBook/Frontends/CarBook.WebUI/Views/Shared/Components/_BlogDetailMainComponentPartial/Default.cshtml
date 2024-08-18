@@ -9,7 +9,8 @@
 
         <div class="pt-5 mt-5">
             @await Component.InvokeAsync("_BlogDetailMainCommentListComponentPartial",new {id = item.Id})
-            @await Component.InvokeAsync("_BlogDetailMainCommetFormComponentPartial")
+            @* @await Component.InvokeAsync("_BlogDetailMainCommetFormComponentPartial") *@
+            @await Html.PartialAsync("~/Views/Blog/AddComment.cshtml", new { id = item.Id })
         </div>
     }
 </div> 

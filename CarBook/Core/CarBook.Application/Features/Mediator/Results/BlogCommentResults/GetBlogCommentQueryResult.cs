@@ -12,4 +12,5 @@ public class GetBlogCommentQueryResult : BaseResult
     public string Content { get; set; }
     public string BlogId { get; set; }
     public string BlogTitle { get; set; }
+    public string Email { get; set; }
 }

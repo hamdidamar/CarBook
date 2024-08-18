@@ -26,6 +26,7 @@ public class GetBlogCommentByIdQueryHandler : IRequestHandler<GetBlogCommentById
         {
             Id = value.Id,
             Name = value.Name,
+            Email = value.Email,
             Content = value.Content,
             BlogId = value.BlogId,
             CreatedDate = value.CreatedDate,

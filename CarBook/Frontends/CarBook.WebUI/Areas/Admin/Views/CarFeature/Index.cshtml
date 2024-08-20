@@ -1,0 +1,39 @@
+﻿@model List<GetAllCarFeatureWithIncludesDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="page-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Araca Ait Özellikler Listesi</h4>
+                        <p class="card-subtitle mb-4">
+                            Araca ait özellik eklemesi yapabilir,mevcut özellikleri kaldırabilir, ilgili güncellemeleri gerçekleştirebilirsiniz.
+                        </p>
+                        <form method="post">
+                            @for (int i = 0; i < Model.Count; i++)
+                            {
+                                <div class="form-check">
+                                    <input type="hidden" asp-for="@Model[i].id" />
+                                    <input type="hidden" asp-for="@Model[i].FeatureName" />
+                                    <input type="hidden" asp-for="@Model[i].FeatureId" />
+                                    <input type="hidden" asp-for="@Model[i].CarId" />
+                                    <input type="checkbox" asp-for="@Model[i].Available" class="form-check-input" />
+                                    <label class="form-check-label" for="@Model[i].Available">@Model[i].FeatureName</label>
+                                </div>
+                            }
+                            <br />
+                            <button class="btn btn-success">Araç Özelliklerini Kaydet</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

@@ -138,5 +138,11 @@ namespace CarBook.WebUI.Controllers
             return View();
         }
 
+        [HttpGet]
+        public IActionResult Detail(string id)
+        {
+            return View();
+        }
+
     }
 }

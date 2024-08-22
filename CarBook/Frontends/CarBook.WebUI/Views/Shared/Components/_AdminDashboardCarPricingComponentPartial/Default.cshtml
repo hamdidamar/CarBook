@@ -1,0 +1,60 @@
+﻿@model List<GetAllCarPricingWithIncludesDto>
+<div class="col-xl-6">
+    <div class="card">
+        <div class="card-body">
+
+            <h4 class="card-title">Araç Kiralama Ücretleri</h4>
+            <p class="card-subtitle mb-4 font-size-13">
+                Bazı araçların kiralama fiyatlarını burada görebilirsiniz.
+            </p>
+
+            <div class="table-responsive">
+                <table class="table table-centered table-hover table-xl mb-0" id="recent-orders">
+                    <thead>
+                        <tr>
+                            <th class="border-top-0">Marka</th>
+                            <th class="border-top-0">Model</th>
+                            <th class="border-top-0">Günlük Fiyat</th>
+                            <th class="border-top-0">Haftalık Fiyat</th>
+                            <th class="border-top-0">Aylık Fiyat</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                      
+
+                        @foreach (var item in Model.DistinctBy(x => x.CarId).ToList())
+                        {
+                            <tr>
+                                <td class="text-truncate">@item.BrandName</td>
+                                <td class="text-truncate">@item.ModelName</td>
+
+                                @foreach (var priceName in Model.Select(x => x.PricingName).Distinct().ToList())
+                                {
+                                    @foreach (var colTable in Model)
+                                    {
+                                        if (colTable.ModelId == item.ModelId && colTable.PricingName == priceName)
+                                        {
+                                            <td class="text-truncate">@colTable.Amount ₺</td>
+                                        }
+
+                                    }
+
+
+                                }
+
+                            </tr>
+
+                                
+
+
+
+                        }
+                        
+                       
+                    </tbody>
+                </table>
+            </div>
+
+        </div> 
+    </div> 
+</div>

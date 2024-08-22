@@ -30,6 +30,8 @@ public class GetAllCarPricingWithIncludesDto
     public string CarImageUrl { get; set; }
     public string DetailImageUrl { get; set; }
     public decimal DailyPrice { get; set; }
+    public decimal WeeklyPrice { get; set; }
+    public decimal MonthlyPrice { get; set; }
     public decimal Amount { get; set; }
     public string id { get; set; }
     public bool isActive { get; set; }

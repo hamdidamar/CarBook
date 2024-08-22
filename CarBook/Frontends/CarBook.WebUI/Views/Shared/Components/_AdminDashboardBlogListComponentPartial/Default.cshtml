@@ -1,0 +1,36 @@
+﻿@model List<GetAllBlogWithIncludesDto>
+
+<div class="col-xl-6">
+    <div class="card">
+        <div class="card-body">
+
+            <h4 class="card-title">Son Bloglar</h4>
+            <p class="card-subtitle mb-4 font-size-13">
+                Yazarlarınızın oluşturduğu son 5 adet blog yazısı
+            </p>
+
+            <div class="table-responsive">
+                <table class="table table-centered table-hover table-xl mb-0" id="recent-orders">
+                    <thead>
+                        <tr>
+                            <th class="border-top-0">Yazar - Başlık</th>
+                            <th class="border-top-0">Blog Görüntüle</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td class="text-truncate">@item.AuthorName - @item.Title</td>
+                                <td class="text-truncate"><a href="/Blog/Detail/@item.Id" class="btn btn-outline-primary">Blog Gör</a></td>
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>

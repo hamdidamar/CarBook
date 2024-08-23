@@ -23,7 +23,7 @@ public class GetCarWithIncludesQueryHandler
     {
         var values = _repository.GetListWithPredicateAndIncludes(
             predicate:x=>x.IsActive, 
-            include:c => c.Include(c => c.Model).Include(c => c.Model.Brand).Include(c => c.Color)
+            include:c => c.Include(c => c.Model).Include(c => c.Model.Brand).Include(c => c.Color).Include(x=>x.Model.Transmission).Include(x=>x.Model.Fuel)
             );
 
         return values.Where(x => x.IsActive && !x.IsDeleted).Select(x => new GetCarWithIncludesQueryResult
@@ -33,6 +33,8 @@ public class GetCarWithIncludesQueryHandler
             ColorName = x.Color.Name,
             BrandName = x.Model.Brand.Name,
             ModelName = x.Model.Name,
+            TransmissionName = x.Model.Transmission.Name,
+            FuelName = x.Model.Fuel.Name,
             ModelPrice = x.Model.DailyPrice.ToString(),
             ModelId = x.ModelId,
             Kilometer = x.Kilometer,

@@ -14,6 +14,8 @@ public class GetAllCarWithIncludesDto:BaseDto
     public string ModelName { get; set; }
     public string ModelPrice { get; set; }
     public string BrandName { get; set; }
+    public string TransmissionName { get; set; }
+    public string FuelName { get; set; }
     public int Kilometer { get; set; }
     public short ModelYear { get; set; }
     public string Plate { get; set; }

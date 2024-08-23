@@ -30,4 +30,15 @@ public class CarController : Controller
         }
         return View();
     }
+
+    public async Task<IActionResult> Detail(string id)
+    {
+        ViewBag.MainPage = "Ana Sayfa";
+        ViewBag.MainLink = "/default";
+        ViewBag.SubPage = "Araç Detay";
+        ViewBag.PageTitle = "Araç Özellikleri";
+        ViewBag.carId =  id;
+
+        return View();
+    }
 }

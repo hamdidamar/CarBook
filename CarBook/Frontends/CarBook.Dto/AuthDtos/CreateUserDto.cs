@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CarBook.Domain.Entities;
+namespace CarBook.Dto.AuthDtos;
 
-public class User:BaseEntity
+public class CreateUserDto
 {
     public string Name { get; set; }
     public string Surname { get; set; }
@@ -14,6 +14,5 @@ public class User:BaseEntity
     public string Password { get; set; }
     public string? Email { get; set; }
     public string? Phone { get; set; }
-    public string RoleId { get; set; }
-    public virtual Role Role { get; set; }
+    public string RoleId { get; set; } = "3";
 }

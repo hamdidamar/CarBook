@@ -42,6 +42,8 @@ public class CarBookContext : DbContext
     public DbSet<RentACar> RentACars { get; set; }
     public DbSet<Reservation> Reservations { get; set; }
     public DbSet<CarReview> CarReviews { get; set; }
+    public DbSet<Role> Roles { get; set; }
+    public DbSet<User> Users { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
